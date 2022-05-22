@@ -6,22 +6,27 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import model.LoginModel;
 import view.LoginView;
+import view.RegisterView;
 
 /**
  *
  * @author harshit
  * @author husban
- *         passphrase: passmanagerKeyPhrase
+ * passphrase: passmanagerKeyPhrase
  */
+
 public class LoginController {
 
     LoginView view = null;
     LoginModel model = null;
+    RegisterView rView = null;
 
-    public LoginController(LoginView view, LoginModel model) {
+    public LoginController(LoginView view, LoginModel model, RegisterView rView) {
         this.view = view;
         this.model = model;
+        this.rView = rView;
         this.view.LoginBtnActionListerner(new CheckUserInfo());
+        this.view.RegisterBtnActionListerner(new DisplayRegisterView());
     }
 
     class CheckUserInfo implements ActionListener {
@@ -65,6 +70,17 @@ public class LoginController {
         boolean validatePassword(String password) {
             return password.length() >= 8 && (!password.contains(" "));
         }
+
+    }
+
+    class DisplayRegisterView implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            view.setVisible(false);
+            rView.setVisible(true);
+        }
+
     }
 
 }

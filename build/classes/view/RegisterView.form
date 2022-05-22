@@ -80,12 +80,12 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="Password1" min="-2" pref="214" max="-2" attributes="0"/>
+                              <Component id="Password" min="-2" pref="214" max="-2" attributes="0"/>
                               <Component id="EmailMsg1" min="-2" max="-2" attributes="0"/>
                               <Component id="UsernameMsg" min="-2" max="-2" attributes="0"/>
                               <Component id="EmailMsg" min="-2" max="-2" attributes="0"/>
-                              <Component id="Password" min="-2" pref="214" max="-2" attributes="0"/>
                               <Component id="Username" min="-2" pref="214" max="-2" attributes="0"/>
+                              <Component id="Email" alignment="0" min="-2" pref="214" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -107,11 +107,11 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="EmailMsg" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="Password" min="-2" pref="34" max="-2" attributes="0"/>
+                  <Component id="Email" min="-2" pref="34" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   <Component id="EmailMsg1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="Password1" min="-2" pref="34" max="-2" attributes="0"/>
+                  <Component id="Password" min="-2" pref="34" max="-2" attributes="0"/>
                   <EmptySpace pref="32" max="32767" attributes="0"/>
                   <Component id="RegisterBtn" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
@@ -124,8 +124,6 @@
           <Properties>
             <Property name="horizontalAlignment" type="int" value="2"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JPasswordField" name="Password">
         </Component>
         <Component class="javax.swing.JButton" name="RegisterBtn">
           <Properties>
@@ -147,7 +145,12 @@
             <Property name="text" type="java.lang.String" value="Enter Password"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JPasswordField" name="Password1">
+        <Component class="javax.swing.JPasswordField" name="Password">
+        </Component>
+        <Component class="javax.swing.JTextField" name="Email">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="2"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

@@ -1,5 +1,7 @@
 package view;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author husban
@@ -22,6 +24,7 @@ public class RegisterView extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
     // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -29,12 +32,12 @@ public class RegisterView extends javax.swing.JFrame {
         Logo = new javax.swing.JLabel();
         Body = new javax.swing.JPanel();
         Username = new javax.swing.JTextField();
-        Password = new javax.swing.JPasswordField();
         RegisterBtn = new javax.swing.JButton();
         EmailMsg = new javax.swing.JLabel();
         UsernameMsg = new javax.swing.JLabel();
         EmailMsg1 = new javax.swing.JLabel();
-        Password1 = new javax.swing.JPasswordField();
+        Password = new javax.swing.JPasswordField();
+        Email = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,6 +68,8 @@ public class RegisterView extends javax.swing.JFrame {
 
         EmailMsg1.setText("Enter Password");
 
+        Email.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+
         javax.swing.GroupLayout BodyLayout = new javax.swing.GroupLayout(Body);
         Body.setLayout(BodyLayout);
         BodyLayout.setHorizontalGroup(
@@ -75,14 +80,14 @@ public class RegisterView extends javax.swing.JFrame {
                                                 .addGap(47, 47, 47)
                                                 .addGroup(BodyLayout
                                                         .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(Password1, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                        .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                 214, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addComponent(EmailMsg1)
                                                         .addComponent(UsernameMsg)
                                                         .addComponent(EmailMsg)
-                                                        .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                214, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addComponent(Username, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addGroup(BodyLayout.createSequentialGroup()
                                                 .addGap(87, 87, 87)
@@ -100,12 +105,12 @@ public class RegisterView extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(EmailMsg)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, 34,
+                                .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, 34,
                                         javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(EmailMsg1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Password1, javax.swing.GroupLayout.PREFERRED_SIZE, 34,
+                                .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, 34,
                                         javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32,
                                         Short.MAX_VALUE)
@@ -133,14 +138,42 @@ public class RegisterView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public String getUsername() {
+        return Username.getText();
+    }
+
+    public String getEmail() {
+        return Email.getText();
+    }
+
+    public String getPassword() {
+        return new String(Password.getPassword());
+    }
+
+    public void clearUsername() {
+        Username.setText("");
+    }
+
+    public void clearPassword() {
+        Password.setText("");
+    }
+
+    public void clearEmail() {
+        Email.setText("");
+    }
+
+    public void RegisterBtnActionListener(ActionListener action) {
+        RegisterBtn.addActionListener(action);
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Body;
+    private javax.swing.JTextField Email;
     private javax.swing.JLabel EmailMsg;
     private javax.swing.JLabel EmailMsg1;
     private javax.swing.JPanel Header;
     private javax.swing.JLabel Logo;
     private javax.swing.JPasswordField Password;
-    private javax.swing.JPasswordField Password1;
     private javax.swing.JButton RegisterBtn;
     private javax.swing.JTextField Username;
     private javax.swing.JLabel UsernameMsg;
