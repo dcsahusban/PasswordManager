@@ -12,7 +12,6 @@ import view.RegisterView;
  *
  * @author harshit
  * @author husban
- * passphrase: passmanagerKeyPhrase
  */
 
 public class LoginController {
@@ -50,7 +49,7 @@ public class LoginController {
 
             if (validateUsername(username) && validatePassword(password)) {
                 try {
-                    if (model.isUserExsist(username)) {
+                    if (model.isUserExsists(username,password)) {
                         System.out.println("Verified");
                     } else {
                         System.out.println("Not-Verified");
@@ -68,7 +67,7 @@ public class LoginController {
         }
 
         boolean validatePassword(String password) {
-            return password.length() >= 8 && (!password.contains(" "));
+            return password.length() >= 5 && (!password.contains(" "));
         }
 
     }

@@ -8,15 +8,13 @@ import java.sql.*;
  * @author harshit
  */
 public class RegisterModel {
-    private final static String DB_USERNAME = "root";
-    private final static String DB_PASSWORD = "root";
-
+    
     Connection conn = null;
     Statement stm = null;
 
     public RegisterModel() throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.cj.jdbc.Driver");
-        conn = DriverManager.getConnection("jdbc:mysql://localhost/passwordmanager", DB_USERNAME, DB_PASSWORD);
+        conn = DriverManager.getConnection("jdbc:mysql://localhost/passwordmanager", DatabaseModel.DB_USERNAME, DatabaseModel.DB_PASSWORD);
         stm = conn.createStatement();
     }
     
