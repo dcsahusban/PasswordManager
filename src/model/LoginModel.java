@@ -1,19 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package model;
 
 import java.sql.*;
 
 /**
  *
- * @author harshit  
+ * @author harshit
+ * @author husban  
  */
 public class LoginModel {
     
     private final static String DB_USERNAME="root";
-    private final static String DB_PASSWORD="abc";
+//    private final static String DB_PASSWORD="abc";
+    private final static String DB_PASSWORD="root";
     Connection conn = null;
     Statement stm = null;
     

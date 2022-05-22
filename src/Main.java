@@ -1,20 +1,16 @@
-
 import controller.LoginController;
 import java.sql.SQLException;
 import model.LoginModel;
 import view.LoginView;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 /**
  *
  * @author harshit
+ * @author husban
  */
-public class Main {
 
-    public static void main(String[] arg) {
+public class Main {
+    public static void main(String[] args) {
         try {
             LoginView loginWindow = new LoginView();
             LoginModel loginModel = new LoginModel();
