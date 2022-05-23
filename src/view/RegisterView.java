@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -176,6 +177,36 @@ public class RegisterView extends javax.swing.JFrame {
 
     public void clearEmail() {
         Email.setText("");
+    }
+    
+    public void displayUsernameError() {
+        JOptionPane.showMessageDialog(this, "Please enter a valid username.", "Invalid username",
+                        JOptionPane.WARNING_MESSAGE);
+        clearUsername();
+    }
+    
+    public void displayEmailError() {
+        JOptionPane.showMessageDialog(this, "Please enter a valid email.", "Invalid email",
+                        JOptionPane.WARNING_MESSAGE);
+        clearEmail();
+    }
+    
+    public void displayPasswordError() {
+        JOptionPane.showMessageDialog(this, "Please enter a valid password.", "Invalid password",
+                        JOptionPane.WARNING_MESSAGE);
+        clearPassword();
+    }
+    
+    public void displayUsernameExistError() {
+        JOptionPane.showMessageDialog(this, "Username already taken. Please enter different username", "Username already exists",
+            JOptionPane.WARNING_MESSAGE);
+        clearUsername();        
+    }
+    
+    public void displayEmailExistError() {
+        JOptionPane.showMessageDialog(this, "Email already taken. Please enter different email", "Email already exists",
+            JOptionPane.WARNING_MESSAGE);
+        clearEmail();
     }
 
     public void RegisterBtnActionListener(ActionListener action) {

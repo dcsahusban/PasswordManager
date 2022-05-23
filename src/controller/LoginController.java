@@ -49,7 +49,7 @@ public class LoginController {
 
             if (validateUsername(username) && validatePassword(password)) {
                 try {
-                    if (model.isUserExsists(username,password)) {
+                    if (model.verifyUser(username,password)) {
                         System.out.println("Verified");
                     } else {
                         System.out.println("Not-Verified");

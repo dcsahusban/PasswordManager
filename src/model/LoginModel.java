@@ -18,7 +18,7 @@ public class LoginModel {
         stm = conn.createStatement();
     }
 
-    public boolean isUserExsists(String username,String password) throws SQLException {
+    public boolean verifyUser(String username,String password) throws SQLException {
         pstm = conn.prepareStatement("select usr,AES_DECRYPT(pwd,?) from users where usr=?");
         pstm.setString(1, DatabaseModel.PASSKEY);
         pstm.setString(2, username);

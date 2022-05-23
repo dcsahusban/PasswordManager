@@ -3,7 +3,6 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
-import javax.swing.JOptionPane;
 import model.RegisterModel;
 import view.RegisterView;
 
@@ -45,34 +44,24 @@ public class RegisterController {
             String password = view.getPassword();
             
             if (!validateUsername(username)) {
-                JOptionPane.showMessageDialog(view, "Please enter a valid username.", "Invalid username",
-                        JOptionPane.WARNING_MESSAGE);
-                view.clearUsername();
+                view.displayUsernameError();;
             }
             
             if (!validateEmail(email)) {
-                JOptionPane.showMessageDialog(view, "Please enter a valid email.", "Invalid email",
-                        JOptionPane.WARNING_MESSAGE);
-                view.clearPassword();
+                view.displayEmailError();
             }            
 
             if (!validatePassword(password)) {
-                JOptionPane.showMessageDialog(view, "Please enter a valid password.", "Invalid password",
-                        JOptionPane.WARNING_MESSAGE);
-                view.clearPassword();
+                view.displayPasswordError();
             }
             
             try {
                 if(model.isUserExist(username)) {
-                    JOptionPane.showMessageDialog(view, "Username already taken. Please enter different username", "Username already exists",
-                        JOptionPane.WARNING_MESSAGE);
-                    view.clearUsername();
+                    view.displayUsernameExistError();
                     flag = 0;
                 }
                 if(model.isEmailExist(email)) {
-                    JOptionPane.showMessageDialog(view, "Email already taken. Please enter different email", "Email already exists",
-                        JOptionPane.WARNING_MESSAGE);
-                    view.clearEmail();
+                    view.displayEmailExistError();
                     flag = 0;
                 }                
             } catch(SQLException E) {

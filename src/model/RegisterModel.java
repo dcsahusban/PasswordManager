@@ -11,6 +11,8 @@ public class RegisterModel {
     
     Connection conn = null;
     Statement stm = null;
+    ResultSet rs = null;
+    PreparedStatement preStm = null;
 
     public RegisterModel() throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.cj.jdbc.Driver");
@@ -19,7 +21,7 @@ public class RegisterModel {
     }
     
     public boolean isUserExist(String username) throws SQLException {
-        ResultSet rs = stm.executeQuery("Select usr from users");
+        rs = stm.executeQuery("Select usr from users");
         while (rs.next()) {
             if (rs.getString("usr").equals(username)) {
                 return true;
@@ -29,7 +31,7 @@ public class RegisterModel {
     }
     
     public boolean isEmailExist(String email) throws SQLException {
-        ResultSet rs = stm.executeQuery("Select email from users");
+        rs = stm.executeQuery("Select email from users");
         while (rs.next()) {
             if (rs.getString("email").equals(email)) {
                 return true;
@@ -40,7 +42,7 @@ public class RegisterModel {
     
     public void addUser(String username, String email, String password) throws SQLException {
         String insert = "INSERT INTO users(usr, email, pwd) VALUES(?, ?, AES_ENCRYPT(?, 'passmanagerKeyPhrase'))";
-        PreparedStatement preStm = conn.prepareCall(insert);
+        preStm = conn.prepareStatement(insert);
         
         preStm.setString(1, username);
         preStm.setString(2, email);
