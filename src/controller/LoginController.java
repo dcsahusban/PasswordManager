@@ -3,10 +3,9 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
-import javax.swing.JOptionPane;
-import model.LoginModel;
 import view.LoginView;
 import view.RegisterView;
+import model.LoginModel;
 
 /**
  *
@@ -14,21 +13,27 @@ import view.RegisterView;
  * @author husban
  */
 
-public class LoginController {
+public class LoginController extends FormValidater {
 
     LoginView view = null;
     LoginModel model = null;
     RegisterView rView = null;
 
-    public LoginController(LoginView view, LoginModel model, RegisterView rView) {
+    public LoginController(LoginView view, LoginModel model) {
         this.view = view;
         this.model = model;
-        this.rView = rView;
         this.view.LoginBtnActionListerner(new CheckUserInfo());
         this.view.RegisterBtnActionListerner(new DisplayRegisterView());
     }
 
     class CheckUserInfo implements ActionListener {
+//        boolean validateUsername(String username) {
+//            return username.length() >= 5 && (!username.contains(" "));
+//        }
+//
+//        boolean validatePassword(String password) {
+//            return password.length() >= 5 && (!password.contains(" "));
+//        }
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -36,20 +41,19 @@ public class LoginController {
             String password = view.getPassword();
 
             if (!validateUsername(username)) {
-                JOptionPane.showMessageDialog(view, "Please enter a valid username.", "Invalid username",
-                        JOptionPane.WARNING_MESSAGE);
+                view.displayUsernameError();
                 view.clearUsername();
             }
 
             if (!validatePassword(password)) {
-                JOptionPane.showMessageDialog(view, "Please enter a valid password.", "Invalid password",
-                        JOptionPane.WARNING_MESSAGE);
+                view.displayPasswordError();
                 view.clearPassword();
             }
 
             if (validateUsername(username) && validatePassword(password)) {
                 try {
                     if (model.verifyUser(username,password)) {
+                        
                         System.out.println("Verified");
                     } else {
                         System.out.println("Not-Verified");
@@ -62,22 +66,15 @@ public class LoginController {
             }
         }
 
-        boolean validateUsername(String username) {
-            return username.length() >= 5 && (!username.contains(" "));
-        }
-
-        boolean validatePassword(String password) {
-            return password.length() >= 5 && (!password.contains(" "));
-        }
-
     }
 
+   
     class DisplayRegisterView implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
             view.setVisible(false);
-            rView.setVisible(true);
+            main.Initialize.getIntance().getRegisterView().setVisible(true);
         }
 
     }

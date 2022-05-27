@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -179,7 +180,19 @@ public class LoginView extends javax.swing.JFrame {
         public void clearPassword() {
                 Password.setText("");
         }
-
+        
+        public void displayUsernameError() {
+           JOptionPane.showMessageDialog(this, "Please enter a valid username.", "Invalid username",
+                           JOptionPane.WARNING_MESSAGE);
+           clearUsername();
+        }
+        
+        public void displayPasswordError() {
+            JOptionPane.showMessageDialog(this, "Please enter a valid password.", "Invalid password",
+                            JOptionPane.WARNING_MESSAGE);
+            clearPassword();
+        }
+        
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Body;
     private javax.swing.JLabel EmailLabel;

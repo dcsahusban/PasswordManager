@@ -7,6 +7,7 @@ import java.sql.*;
  * @author husban
  * @author harshit
  */
+
 public class RegisterModel {
     
     Connection conn = null;

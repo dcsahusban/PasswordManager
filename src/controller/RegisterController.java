@@ -3,15 +3,15 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
-import model.RegisterModel;
 import view.RegisterView;
+import model.RegisterModel;
 
 /**
  *
  * @author husban
  * @author harshit
  */
-public class RegisterController {
+public class RegisterController extends FormValidater {
 
     RegisterModel model = null;
     RegisterView view = null;
@@ -24,17 +24,17 @@ public class RegisterController {
 
     class AddNewUser implements ActionListener {
         
-        boolean validateUsername(String username) {
-            return username.length() >= 5 && (!username.contains(" "));
-        }
-        
-        boolean validateEmail(String email) {
-            return email.length() >= 6 && (!email.contains(" "));
-        }
-        
-        boolean validatePassword(String password) {
-            return password.length() >= 8 && (!password.contains(" "));
-        }
+//        boolean validateUsername(String username) {
+//            return username.length() >= 5 && (!username.contains(" "));
+//        }
+//        
+//        boolean validateEmail(String email) {
+//            return email.length() >= 6 && (!email.contains(" "));
+//        }
+//        
+//        boolean validatePassword(String password) {
+//            return password.length() >= 8 && (!password.contains(" "));
+//        }
 
         @Override
         public void actionPerformed(ActionEvent e) {

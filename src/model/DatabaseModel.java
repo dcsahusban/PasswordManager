@@ -5,6 +5,7 @@ package model;
  * @author harshit
  * @author husban
  */
+
 public interface DatabaseModel {
     
     public final static String PASSKEY = "passmanagerKeyPhrase";
