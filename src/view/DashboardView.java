@@ -1,13 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package view;
+
+import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 /**
  *
- * @author husbankhalid
+ * @author husban
+ * @author harshit
  */
+
 public class DashboardView extends javax.swing.JFrame {
 
     /**
@@ -15,6 +18,7 @@ public class DashboardView extends javax.swing.JFrame {
      */
     public DashboardView() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -132,6 +136,17 @@ public class DashboardView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void AddBtnActionListener(ActionListener action) {
+        AddButton.addActionListener(action);
+    }
+    
+    public void GenerateBtnActionListener(ActionListener action) {
+        GenerateButton.addActionListener(action);
+    }
+    
+    public void displayGeneratedPassword(String generatedPassword) {
+        JOptionPane.showMessageDialog(this, new JPanel().add(new JTextField(generatedPassword)), "Generated Password", JOptionPane.INFORMATION_MESSAGE);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddButton;

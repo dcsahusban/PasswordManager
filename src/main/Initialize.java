@@ -3,11 +3,13 @@ package main;
 import java.sql.SQLException;
 import model.LoginModel;
 import model.RegisterModel;
+import model.DashboardModel;
 import view.LoginView;
 import view.RegisterView;
 import view.DashboardView;
 import controller.RegisterController;
 import controller.LoginController;
+import controller.DashboardController;
 import view.ViewStore;
 
 /**
@@ -51,8 +53,13 @@ public class Initialize extends ViewStore {
             init.setRegisterView(registerWindow);
             RegisterModel registerModel = new RegisterModel();
             
+            DashboardView dashboardWindow = new DashboardView();
+            init.setDashboardView(dashboardWindow);
+            DashboardModel dashboardModel = new DashboardModel();
+            
             LoginController loginCtr = new LoginController(loginWindow, loginModel);
             RegisterController registerCtr = new RegisterController(registerWindow, registerModel);
+            DashboardController dashboardCtr = new DashboardController(dashboardWindow, dashboardModel);
 
             loginWindow.setVisible(true);
         } catch (ClassNotFoundException | SQLException e) {
