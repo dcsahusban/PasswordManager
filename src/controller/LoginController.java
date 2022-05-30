@@ -55,6 +55,7 @@ public class LoginController extends FormValidater {
                     if (model.verifyUser(username,password)) {
                         System.out.println("Verified");
                         view.setVisible(false);
+                        main.CredentialStore.setLoggedInUser(username);
                         main.Initialize.getIntance().getDashboardView().setVisible(true);
                     } else {
                         System.out.println("Not-Verified");

@@ -10,4 +10,9 @@ package model;
  */
 public class DashboardModel {
     
+    public boolean checkUserData(){
+        //mysql check
+        return false;
+    } 
+    
 }

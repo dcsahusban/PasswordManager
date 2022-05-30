@@ -2,7 +2,6 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.SQLException;
 import view.DashboardView;
 import model.DashboardModel;
 import org.apache.commons.lang3.*;
@@ -21,6 +20,16 @@ public class DashboardController {
         this.model = model;
         this.view.GenerateBtnActionListener(new generateNewPassword());
         this.view.AddBtnActionListener(new addNewCredentials());
+    }
+    
+    public void displayCredentialList(){
+        if(this.model.checkUserData()){
+            //show table
+            
+        }else{
+            //show message
+            
+        }
     }
     
     class addNewCredentials implements ActionListener {

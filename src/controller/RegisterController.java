@@ -23,18 +23,6 @@ public class RegisterController extends FormValidater {
     }
 
     class AddNewUser implements ActionListener {
-        
-//        boolean validateUsername(String username) {
-//            return username.length() >= 5 && (!username.contains(" "));
-//        }
-//        
-//        boolean validateEmail(String email) {
-//            return email.length() >= 6 && (!email.contains(" "));
-//        }
-//        
-//        boolean validatePassword(String password) {
-//            return password.length() >= 8 && (!password.contains(" "));
-//        }
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -55,6 +43,7 @@ public class RegisterController extends FormValidater {
                 view.displayPasswordError();
             }
             
+            //TODO change db username to be unique
             try {
                 if(model.isUserExist(username)) {
                     view.displayUsernameExistError();
@@ -70,10 +59,14 @@ public class RegisterController extends FormValidater {
             
             if(validateUsername(username) && validateEmail(email) && validatePassword(password) && flag == 1) {
                 try {
-                    model.addUser(username, email, password);            
+                    model.addUser(username, email, password);    
+                    main.CredentialStore.setLoggedInUser(username);
+                    main.Initialize.getIntance().getDashboardView().setVisible(true);
                 } catch(SQLException E) {
                     System.out.println("User registration failed.");
                     System.out.println(E.getMessage());
+                }finally{
+                   view.setVisible(false);
                 }
             }
         }

@@ -78,6 +78,12 @@ public class DashboardView extends javax.swing.JFrame {
 
         SearchButton.setText("Search");
 
+        PasswordPanel.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                PasswordPanelComponentShown(evt);
+            }
+        });
+
         javax.swing.GroupLayout PasswordPanelLayout = new javax.swing.GroupLayout(PasswordPanel);
         PasswordPanel.setLayout(PasswordPanelLayout);
         PasswordPanelLayout.setHorizontalGroup(
@@ -136,6 +142,15 @@ public class DashboardView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //Fires when PasswordPanel is shown
+    private void PasswordPanelComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_PasswordPanelComponentShown
+        
+    }//GEN-LAST:event_PasswordPanelComponentShown
+    
+    public void PasswordPanelActionListener(ActionListener action) {
+//        PasswordPanel.addComponentListener();
+    }
+    
     public void AddBtnActionListener(ActionListener action) {
         AddButton.addActionListener(action);
     }
