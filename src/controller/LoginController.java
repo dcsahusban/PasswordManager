@@ -12,7 +12,6 @@ import model.LoginModel;
  * @author harshit
  * @author husban
  */
-
 public class LoginController extends FormValidater {
 
     LoginView view = null;
@@ -43,42 +42,38 @@ public class LoginController extends FormValidater {
             if (!validateUsername(username)) {
                 view.displayUsernameError();
                 view.clearUsername();
+                return;
             }
 
             if (!validatePassword(password)) {
                 view.displayPasswordError();
                 view.clearPassword();
+                return;
             }
 
-            if (validateUsername(username) && validatePassword(password)) {
-                try {
-                    if (model.verifyUser(username,password)) {
-                        System.out.println("Verified");
-                        view.setVisible(false);
-                        main.CredentialStore.setLoggedInUser(username);
-                        main.Initialize.getIntance().getDashboardView().setVisible(true);
-                    } else {
-                        System.out.println("Not-Verified");
-                    }
-                } catch (SQLException ex) {
-
+            try {
+                if (model.verifyUseranmePassword(username, password)) {
+                    view.setVisible(false);
+                    main.CredentialStore.setLoggedInUser(username);
+                    main.Initialize.getIntance().getDashboardView().setVisible(true);
+                    System.out.println("Verified");
+                } else {
+                    System.out.println("Not-Verified");
                 }
-            } else {
-                System.out.println("Username and/or Password validation failed.");
+            } catch (SQLException ex) {
+
             }
         }
-
     }
 
-   
-    class DisplayRegisterView implements ActionListener {
+class DisplayRegisterView implements ActionListener {
 
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            view.setVisible(false);
-            main.Initialize.getIntance().getRegisterView().setVisible(true);
-        }
-
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        view.setVisible(false);
+        main.Initialize.getIntance().getRegisterView().setVisible(true);
     }
+
+}
 
 }

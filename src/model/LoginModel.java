@@ -14,25 +14,12 @@ public class LoginModel {
     PreparedStatement pstm = null;
     
     public LoginModel() throws ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        conn = DriverManager.getConnection("jdbc:mysql://localhost/passwordmanager", DatabaseModel.DB_USERNAME, DatabaseModel.DB_PASSWORD);
+        conn = main.Initialize.getIntance().getMySqlConnection();
         stm = conn.createStatement();
     }
 
-    public boolean verifyUser(String username,String password) throws SQLException {
-        pstm = conn.prepareStatement("select usr,AES_DECRYPT(pwd,?) from users where usr=?");
-        pstm.setString(1, DatabaseModel.PASSKEY);
-        pstm.setString(2, username);
-        ResultSet rs = pstm.executeQuery();
-        while (rs.next()) {
-            String user = rs.getString(1);
-            String pass = rs.getString(2);
-            System.out.println(pass);
-            if (user.equals(username) && pass.equals(password)) {
-                return true;
-            }
-        }
-        return false;
+    public boolean verifyUseranmePassword(String username,String password) throws SQLException {
+        return DatabaseModel.verifyUsername("users", username, conn) && 
+                 DatabaseModel.verifyPassword("users", username, password, conn);
     }
-
 }

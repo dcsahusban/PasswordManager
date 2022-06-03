@@ -16,8 +16,7 @@ public class RegisterModel {
     PreparedStatement preStm = null;
 
     public RegisterModel() throws SQLException, ClassNotFoundException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        conn = DriverManager.getConnection("jdbc:mysql://localhost/passwordmanager", DatabaseModel.DB_USERNAME, DatabaseModel.DB_PASSWORD);
+        conn = conn = main.Initialize.getIntance().getMySqlConnection();
         stm = conn.createStatement();
     }
     

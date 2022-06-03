@@ -1,16 +1,25 @@
 package view;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.JTextField;
-
+import javax.swing.event.AncestorListener;
+import model.TableModel;
+import java.lang.Object;
+import javax.swing.JButton;
+import javax.swing.JScrollPane;
 /**
  *
  * @author husban
  * @author harshit
  */
-
 public class DashboardView extends javax.swing.JFrame {
 
     /**
@@ -35,65 +44,74 @@ public class DashboardView extends javax.swing.JFrame {
         AddButton = new javax.swing.JButton();
         GenerateButton = new javax.swing.JButton();
         SecureNotesButton = new javax.swing.JButton();
-        SearchBar = new javax.swing.JTextField();
-        SearchButton = new javax.swing.JButton();
         PasswordPanel = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         MainPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        SideBar.setBackground(new java.awt.Color(51, 51, 51));
+        SideBar.setBackground(new java.awt.Color(127, 126, 126));
         SideBar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        AddButton.setText("Add");
+        AddButton.setBackground(new java.awt.Color(252, 252, 252));
+        AddButton.setText("Logins");
+        AddButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddButtonActionPerformed(evt);
+            }
+        });
 
-        GenerateButton.setText("Generate");
+        GenerateButton.setBackground(new java.awt.Color(252, 252, 252));
+        GenerateButton.setText("Generator");
+        GenerateButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GenerateButtonActionPerformed(evt);
+            }
+        });
 
+        SecureNotesButton.setBackground(new java.awt.Color(252, 252, 252));
         SecureNotesButton.setText("Secure Notes");
 
         javax.swing.GroupLayout SideBarLayout = new javax.swing.GroupLayout(SideBar);
         SideBar.setLayout(SideBarLayout);
         SideBarLayout.setHorizontalGroup(
             SideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(SideBarLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(SideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(GenerateButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(AddButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(SecureNotesButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(27, Short.MAX_VALUE))
+            .addComponent(AddButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(GenerateButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(SecureNotesButton, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
         );
         SideBarLayout.setVerticalGroup(
             SideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SideBarLayout.createSequentialGroup()
-                .addGap(72, 72, 72)
-                .addComponent(AddButton)
-                .addGap(39, 39, 39)
-                .addComponent(GenerateButton)
-                .addGap(42, 42, 42)
-                .addComponent(SecureNotesButton)
+                .addGap(83, 83, 83)
+                .addComponent(AddButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(GenerateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(SecureNotesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        SearchButton.setText("Search");
-
-        PasswordPanel.addComponentListener(new java.awt.event.ComponentAdapter() {
-            public void componentShown(java.awt.event.ComponentEvent evt) {
-                PasswordPanelComponentShown(evt);
-            }
-        });
+        PasswordPanel.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout PasswordPanelLayout = new javax.swing.GroupLayout(PasswordPanel);
         PasswordPanel.setLayout(PasswordPanelLayout);
         PasswordPanelLayout.setHorizontalGroup(
             PasswordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 485, Short.MAX_VALUE)
+            .addGap(0, 576, Short.MAX_VALUE)
         );
         PasswordPanelLayout.setVerticalGroup(
             PasswordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 392, Short.MAX_VALUE)
+            .addGap(0, 416, Short.MAX_VALUE)
         );
+
+        jLabel1.setFont(new java.awt.Font("Serif", 0, 38)); // NOI18N
+        jLabel1.setText("Logins");
+
+        jButton2.setBackground(new java.awt.Color(204, 204, 204));
+        jButton2.setText("Add login");
 
         javax.swing.GroupLayout MainPanelLayout = new javax.swing.GroupLayout(MainPanel);
         MainPanel.setLayout(MainPanelLayout);
@@ -101,29 +119,26 @@ public class DashboardView extends javax.swing.JFrame {
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MainPanelLayout.createSequentialGroup()
                 .addComponent(SideBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(MainPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(SearchButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(SearchBar, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(MainPanelLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(PasswordPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(14, Short.MAX_VALUE))))
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(PasswordPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         MainPanelLayout.setVerticalGroup(
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(SideBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(MainPanelLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(SearchBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SearchButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(0, 21, Short.MAX_VALUE)
+                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(18, 18, 18)
                 .addComponent(PasswordPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -134,31 +149,56 @@ public class DashboardView extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(MainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(MainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    //Fires when PasswordPanel is shown
-    private void PasswordPanelComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_PasswordPanelComponentShown
-        
-    }//GEN-LAST:event_PasswordPanelComponentShown
-    
-    public void PasswordPanelActionListener(ActionListener action) {
-//        PasswordPanel.addComponentListener();
+    private void AddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AddButtonActionPerformed
+
+    private void GenerateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerateButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_GenerateButtonActionPerformed
+
+    public void PasswordPanelActionListerner(AncestorListener evt) {
+        PasswordPanel.addAncestorListener(evt);
+    }
+
+    public void DisplayTable(ArrayList<TableModel> list){
+        int size = list.size();
+        Object[][] data = new Object[size][];
+        for(int i=0;i<size;i++){
+            data[i] = new Object[]{list.get(i).getID(),list.get(i).getSite(),list.get(i).getPwd(),list.get(i).getDate()};
+        }
+        String[] col = new String[]{"ID","Website","Password","Date Created"};
+        JTable Table = new JTable(data, col);
+        JScrollPane scroll = new JScrollPane(Table);
+        scroll.getViewport().setBackground(Color.WHITE);
+        scroll.setSize(PasswordPanel.getWidth(), PasswordPanel.getHeight());
+        PasswordPanel.add(scroll);
+        PasswordPanel.repaint();
     }
     
+    public void showMessage() {
+        JLabel msgLabel = new JLabel("Click Add button to store password", JLabel.CENTER);
+        msgLabel.setSize(PasswordPanel.getWidth(), 50);
+//            msgLabel.setLayout(new BorderLayout());
+//            msgLabel.setBounds(0, PasswordPanel.getHeight()/2, PasswordPanel.getWidth(), 50);
+        PasswordPanel.add(msgLabel);
+        PasswordPanel.repaint();
+    }
+
     public void AddBtnActionListener(ActionListener action) {
         AddButton.addActionListener(action);
     }
-    
+
     public void GenerateBtnActionListener(ActionListener action) {
         GenerateButton.addActionListener(action);
     }
-    
+
     public void displayGeneratedPassword(String generatedPassword) {
         JOptionPane.showMessageDialog(this, new JPanel().add(new JTextField(generatedPassword)), "Generated Password", JOptionPane.INFORMATION_MESSAGE);
     }
@@ -168,9 +208,9 @@ public class DashboardView extends javax.swing.JFrame {
     private javax.swing.JButton GenerateButton;
     private javax.swing.JPanel MainPanel;
     private javax.swing.JPanel PasswordPanel;
-    private javax.swing.JTextField SearchBar;
-    private javax.swing.JButton SearchButton;
     private javax.swing.JButton SecureNotesButton;
     private javax.swing.JPanel SideBar;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

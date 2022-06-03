@@ -17,7 +17,7 @@ public class CredentialStore {
         CredentialStore.loggedInUser = user;
     }
     
-    static public String getLoggedInUser(String user){
+    static public String getLoggedInUser(){
         return CredentialStore.loggedInUser;
     }
            
