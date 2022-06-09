@@ -1,29 +1,22 @@
 package view;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.FlowLayout;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.JTextField;
 import javax.swing.event.AncestorListener;
 import model.TableModel;
-import java.lang.Object;
-import javax.swing.JButton;
-import javax.swing.JScrollPane;
+
 /**
  *
  * @author husban
- * @author harshit
  */
 public class DashboardView extends javax.swing.JFrame {
 
     /**
-     * Creates new form DashboardView
+     * Creates new form DashboardV
      */
     public DashboardView() {
         initComponents();
@@ -39,134 +32,248 @@ public class DashboardView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        MainPanel = new javax.swing.JPanel();
         SideBar = new javax.swing.JPanel();
-        AddButton = new javax.swing.JButton();
-        GenerateButton = new javax.swing.JButton();
-        SecureNotesButton = new javax.swing.JButton();
+        LoginsBtn = new javax.swing.JButton();
+        SecureNotesBtn = new javax.swing.JButton();
+        GenerateBtn = new javax.swing.JButton();
+        MainPanel = new javax.swing.JPanel();
+        LoginsPanel = new javax.swing.JPanel();
+        LoginsHeader = new javax.swing.JLabel();
+        AddLoginsButton = new javax.swing.JButton();
         PasswordPanel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        GeneratePanel = new javax.swing.JPanel();
+        GenerateHeader = new javax.swing.JLabel();
+        GeneratedPasswordField = new javax.swing.JTextField();
+        SecureNotesPanel = new javax.swing.JPanel();
+        SecureNotesHeader = new javax.swing.JLabel();
+        AddSecureNotesButton = new javax.swing.JButton();
+        AddLoginsPanel = new javax.swing.JPanel();
+        AddLoginsHeader = new javax.swing.JLabel();
+        WebsiteLabel = new javax.swing.JLabel();
+        PasswordLabel = new javax.swing.JLabel();
+        WebsiteInputField = new javax.swing.JTextField();
+        PasswordInputField = new javax.swing.JTextField();
+        SubmitButton = new javax.swing.JButton();
+        AddSecureNotesPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
 
-        MainPanel.setBackground(new java.awt.Color(255, 255, 255));
+        SideBar.setBackground(new java.awt.Color(51, 51, 51));
 
-        SideBar.setBackground(new java.awt.Color(127, 126, 126));
-        SideBar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        LoginsBtn.setText("Logins");
 
-        AddButton.setBackground(new java.awt.Color(252, 252, 252));
-        AddButton.setText("Logins");
-        AddButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AddButtonActionPerformed(evt);
-            }
-        });
+        SecureNotesBtn.setText("Secure Notes");
 
-        GenerateButton.setBackground(new java.awt.Color(252, 252, 252));
-        GenerateButton.setText("Generator");
-        GenerateButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GenerateButtonActionPerformed(evt);
-            }
-        });
-
-        SecureNotesButton.setBackground(new java.awt.Color(252, 252, 252));
-        SecureNotesButton.setText("Secure Notes");
+        GenerateBtn.setText("Generate");
 
         javax.swing.GroupLayout SideBarLayout = new javax.swing.GroupLayout(SideBar);
         SideBar.setLayout(SideBarLayout);
         SideBarLayout.setHorizontalGroup(
             SideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(AddButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(GenerateButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(SecureNotesButton, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+            .addGroup(SideBarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(SideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(LoginsBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(SecureNotesBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
+                    .addComponent(GenerateBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         SideBarLayout.setVerticalGroup(
             SideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SideBarLayout.createSequentialGroup()
-                .addGap(83, 83, 83)
-                .addComponent(AddButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(GenerateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(SecureNotesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(77, 77, 77)
+                .addComponent(LoginsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
+                .addComponent(GenerateBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46)
+                .addComponent(SecureNotesBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        PasswordPanel.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(SideBar);
+
+        MainPanel.setLayout(new java.awt.CardLayout());
+
+        LoginsHeader.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        LoginsHeader.setText("Logins");
+
+        AddLoginsButton.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
+        AddLoginsButton.setText("Add Login");
 
         javax.swing.GroupLayout PasswordPanelLayout = new javax.swing.GroupLayout(PasswordPanel);
         PasswordPanel.setLayout(PasswordPanelLayout);
         PasswordPanelLayout.setHorizontalGroup(
             PasswordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 576, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         PasswordPanelLayout.setVerticalGroup(
             PasswordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 416, Short.MAX_VALUE)
+            .addGap(0, 412, Short.MAX_VALUE)
         );
 
-        jLabel1.setFont(new java.awt.Font("Serif", 0, 38)); // NOI18N
-        jLabel1.setText("Logins");
-
-        jButton2.setBackground(new java.awt.Color(204, 204, 204));
-        jButton2.setText("Add login");
-
-        javax.swing.GroupLayout MainPanelLayout = new javax.swing.GroupLayout(MainPanel);
-        MainPanel.setLayout(MainPanelLayout);
-        MainPanelLayout.setHorizontalGroup(
-            MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MainPanelLayout.createSequentialGroup()
-                .addComponent(SideBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(MainPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(PasswordPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        javax.swing.GroupLayout LoginsPanelLayout = new javax.swing.GroupLayout(LoginsPanel);
+        LoginsPanel.setLayout(LoginsPanelLayout);
+        LoginsPanelLayout.setHorizontalGroup(
+            LoginsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(LoginsPanelLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(LoginsHeader)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 488, Short.MAX_VALUE)
+                .addComponent(AddLoginsButton)
+                .addGap(17, 17, 17))
+            .addComponent(PasswordPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        MainPanelLayout.setVerticalGroup(
-            MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(SideBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(MainPanelLayout.createSequentialGroup()
-                .addGap(0, 21, Short.MAX_VALUE)
-                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(18, 18, 18)
-                .addComponent(PasswordPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        LoginsPanelLayout.setVerticalGroup(
+            LoginsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(LoginsPanelLayout.createSequentialGroup()
+                .addGroup(LoginsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(LoginsPanelLayout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addComponent(LoginsHeader))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LoginsPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(AddLoginsButton)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(PasswordPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(MainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        MainPanel.add(LoginsPanel, "card2");
+
+        GenerateHeader.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
+        GenerateHeader.setText("Generated Password");
+
+        GeneratedPasswordField.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
+
+        javax.swing.GroupLayout GeneratePanelLayout = new javax.swing.GroupLayout(GeneratePanel);
+        GeneratePanel.setLayout(GeneratePanelLayout);
+        GeneratePanelLayout.setHorizontalGroup(
+            GeneratePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(GeneratePanelLayout.createSequentialGroup()
+                .addGroup(GeneratePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(GeneratePanelLayout.createSequentialGroup()
+                        .addGap(276, 276, 276)
+                        .addComponent(GenerateHeader))
+                    .addGroup(GeneratePanelLayout.createSequentialGroup()
+                        .addGap(183, 183, 183)
+                        .addComponent(GeneratedPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(173, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(MainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        GeneratePanelLayout.setVerticalGroup(
+            GeneratePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(GeneratePanelLayout.createSequentialGroup()
+                .addGap(59, 59, 59)
+                .addComponent(GenerateHeader)
+                .addGap(76, 76, 76)
+                .addComponent(GeneratedPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(310, Short.MAX_VALUE))
         );
+
+        MainPanel.add(GeneratePanel, "card3");
+
+        SecureNotesHeader.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
+        SecureNotesHeader.setText("Secure Notes");
+
+        AddSecureNotesButton.setText("Add Notes");
+
+        javax.swing.GroupLayout SecureNotesPanelLayout = new javax.swing.GroupLayout(SecureNotesPanel);
+        SecureNotesPanel.setLayout(SecureNotesPanelLayout);
+        SecureNotesPanelLayout.setHorizontalGroup(
+            SecureNotesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SecureNotesPanelLayout.createSequentialGroup()
+                .addGap(290, 290, 290)
+                .addComponent(SecureNotesHeader)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 176, Short.MAX_VALUE)
+                .addComponent(AddSecureNotesButton)
+                .addGap(36, 36, 36))
+        );
+        SecureNotesPanelLayout.setVerticalGroup(
+            SecureNotesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SecureNotesPanelLayout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addGroup(SecureNotesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(SecureNotesHeader)
+                    .addComponent(AddSecureNotesButton))
+                .addContainerGap(403, Short.MAX_VALUE))
+        );
+
+        MainPanel.add(SecureNotesPanel, "card4");
+
+        AddLoginsHeader.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
+        AddLoginsHeader.setText("Add Login Credentials");
+
+        WebsiteLabel.setText("Website:");
+
+        PasswordLabel.setText("Password:");
+
+        SubmitButton.setText("Submit");
+
+        javax.swing.GroupLayout AddLoginsPanelLayout = new javax.swing.GroupLayout(AddLoginsPanel);
+        AddLoginsPanel.setLayout(AddLoginsPanelLayout);
+        AddLoginsPanelLayout.setHorizontalGroup(
+            AddLoginsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AddLoginsPanelLayout.createSequentialGroup()
+                .addGroup(AddLoginsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(AddLoginsPanelLayout.createSequentialGroup()
+                        .addGap(247, 247, 247)
+                        .addComponent(AddLoginsHeader))
+                    .addGroup(AddLoginsPanelLayout.createSequentialGroup()
+                        .addGap(152, 152, 152)
+                        .addGroup(AddLoginsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(WebsiteLabel)
+                            .addComponent(PasswordLabel))
+                        .addGap(151, 151, 151)
+                        .addGroup(AddLoginsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(WebsiteInputField, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+                            .addComponent(PasswordInputField)))
+                    .addGroup(AddLoginsPanelLayout.createSequentialGroup()
+                        .addGap(275, 275, 275)
+                        .addComponent(SubmitButton)))
+                .addContainerGap(155, Short.MAX_VALUE))
+        );
+        AddLoginsPanelLayout.setVerticalGroup(
+            AddLoginsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AddLoginsPanelLayout.createSequentialGroup()
+                .addGap(76, 76, 76)
+                .addComponent(AddLoginsHeader)
+                .addGap(87, 87, 87)
+                .addGroup(AddLoginsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(WebsiteLabel)
+                    .addComponent(WebsiteInputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(52, 52, 52)
+                .addGroup(AddLoginsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(PasswordLabel)
+                    .addComponent(PasswordInputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                .addComponent(SubmitButton)
+                .addGap(110, 110, 110))
+        );
+
+        MainPanel.add(AddLoginsPanel, "card5");
+
+        javax.swing.GroupLayout AddSecureNotesPanelLayout = new javax.swing.GroupLayout(AddSecureNotesPanel);
+        AddSecureNotesPanel.setLayout(AddSecureNotesPanelLayout);
+        AddSecureNotesPanelLayout.setHorizontalGroup(
+            AddSecureNotesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 708, Short.MAX_VALUE)
+        );
+        AddSecureNotesPanelLayout.setVerticalGroup(
+            AddSecureNotesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 495, Short.MAX_VALUE)
+        );
+
+        MainPanel.add(AddSecureNotesPanel, "card6");
+
+        getContentPane().add(MainPanel);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void AddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AddButtonActionPerformed
-
-    private void GenerateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerateButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_GenerateButtonActionPerformed
-
     public void PasswordPanelActionListerner(AncestorListener evt) {
-        PasswordPanel.addAncestorListener(evt);
+        LoginsPanel.addAncestorListener(evt);
     }
-
+    
     public void DisplayTable(ArrayList<TableModel> list){
         int size = list.size();
         Object[][] data = new Object[size][];
@@ -177,40 +284,107 @@ public class DashboardView extends javax.swing.JFrame {
         JTable Table = new JTable(data, col);
         JScrollPane scroll = new JScrollPane(Table);
         scroll.getViewport().setBackground(Color.WHITE);
-        scroll.setSize(PasswordPanel.getWidth(), PasswordPanel.getHeight());
+        scroll.setSize(LoginsPanel.getWidth(), LoginsPanel.getHeight());
         PasswordPanel.add(scroll);
         PasswordPanel.repaint();
     }
     
     public void showMessage() {
         JLabel msgLabel = new JLabel("Click Add button to store password", JLabel.CENTER);
-        msgLabel.setSize(PasswordPanel.getWidth(), 50);
-//            msgLabel.setLayout(new BorderLayout());
-//            msgLabel.setBounds(0, PasswordPanel.getHeight()/2, PasswordPanel.getWidth(), 50);
+        msgLabel.setSize(LoginsPanel.getWidth(), 50);
         PasswordPanel.add(msgLabel);
         PasswordPanel.repaint();
     }
-
-    public void AddBtnActionListener(ActionListener action) {
-        AddButton.addActionListener(action);
+    
+    public void AddLoginsBtnActionListener(ActionListener action) {
+        AddLoginsButton.addActionListener(action);
     }
 
     public void GenerateBtnActionListener(ActionListener action) {
-        GenerateButton.addActionListener(action);
+        GenerateBtn.addActionListener(action);
     }
-
-    public void displayGeneratedPassword(String generatedPassword) {
-        JOptionPane.showMessageDialog(this, new JPanel().add(new JTextField(generatedPassword)), "Generated Password", JOptionPane.INFORMATION_MESSAGE);
+    
+    public void LoginsBtnActionListener(ActionListener action) {
+        LoginsBtn.addActionListener(action);
+    }
+    
+    public void SecureNotesBtnActionListener(ActionListener action) {
+        SecureNotesBtn.addActionListener(action);
+    }
+    
+    public void SubmitBtnActionListener(ActionListener action) {
+        SubmitButton.addActionListener(action);
+    }
+    
+    public void DisplayGeneratedPasswordPanel(String generatedPassword) {
+//        JOptionPane.showMessageDialog(this, new JPanel().add(new JTextField(generatedPassword)), "Generated Password", JOptionPane.INFORMATION_MESSAGE);
+          GeneratedPasswordField.setText(generatedPassword);
+          MainPanel.removeAll();
+          MainPanel.add(GeneratePanel);
+          MainPanel.repaint();
+          MainPanel.revalidate();          
+    }
+    
+    public void DisplayLoginsPanel() {
+          MainPanel.removeAll();
+          MainPanel.add(LoginsPanel);
+          MainPanel.repaint();
+          MainPanel.revalidate();          
+    }
+    
+    public void DisplaySecureNotesPanel() {
+          MainPanel.removeAll();
+          MainPanel.add(SecureNotesPanel);
+          MainPanel.repaint();
+          MainPanel.revalidate();          
+    }
+    
+    public void DisplayAddLoginsPanel() {
+          MainPanel.removeAll();
+          MainPanel.add(AddLoginsPanel);
+          MainPanel.repaint();
+          MainPanel.revalidate();           
+    }
+    
+    public String getWebsite() {
+        return WebsiteInputField.getText();
+    }
+    
+    public String getPassword() {
+        return PasswordInputField.getText();
+    }
+    
+    public void clearWebsiteField() {
+        WebsiteInputField.setText("");
+    }
+    
+    public void clearPasswordField() {
+        PasswordInputField.setText("");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton AddButton;
-    private javax.swing.JButton GenerateButton;
+    private javax.swing.JButton AddLoginsButton;
+    private javax.swing.JLabel AddLoginsHeader;
+    private javax.swing.JPanel AddLoginsPanel;
+    private javax.swing.JButton AddSecureNotesButton;
+    private javax.swing.JPanel AddSecureNotesPanel;
+    private javax.swing.JButton GenerateBtn;
+    private javax.swing.JLabel GenerateHeader;
+    private javax.swing.JPanel GeneratePanel;
+    private javax.swing.JTextField GeneratedPasswordField;
+    private javax.swing.JButton LoginsBtn;
+    private javax.swing.JLabel LoginsHeader;
+    private javax.swing.JPanel LoginsPanel;
     private javax.swing.JPanel MainPanel;
+    private javax.swing.JTextField PasswordInputField;
+    private javax.swing.JLabel PasswordLabel;
     private javax.swing.JPanel PasswordPanel;
-    private javax.swing.JButton SecureNotesButton;
+    private javax.swing.JButton SecureNotesBtn;
+    private javax.swing.JLabel SecureNotesHeader;
+    private javax.swing.JPanel SecureNotesPanel;
     private javax.swing.JPanel SideBar;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton SubmitButton;
+    private javax.swing.JTextField WebsiteInputField;
+    private javax.swing.JLabel WebsiteLabel;
     // End of variables declaration//GEN-END:variables
 }

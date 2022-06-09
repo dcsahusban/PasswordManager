@@ -9,8 +9,7 @@ package controller;
 public abstract class FormValidater {
     
     public static boolean validateUsername(String username) {
-        return true;
-//        return username.matches("^(?=[a-zA-Z0-9._]{8,20}$)(?!.*[_.]{2})[^_.].*[^_.]$");
+        return username.matches("^(?=[a-zA-Z0-9._]{5,20}$)(?!.*[_.]{2})[^_.].*[^_.]$");
     }
     
     public static boolean validatePassword(String password) {

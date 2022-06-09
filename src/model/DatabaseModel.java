@@ -14,8 +14,8 @@ public interface DatabaseModel {
     
     public final static String PASSKEY = "passmanagerKeyPhrase";
     public final static String DB_USERNAME = "root";
-    public final static String DB_PASSWORD="abc";
-//     public final static String DB_PASSWORD = "root";
+//    public final static String DB_PASSWORD="abc";
+     public final static String DB_PASSWORD = "root";
     
     public static Connection setMySqlConnection(){
         try {
@@ -29,7 +29,7 @@ public interface DatabaseModel {
     
     public static boolean checkData(String table,String user,Connection conn) throws SQLException{
         PreparedStatement pstm = conn.prepareStatement("select usr from user_data where usr=?");
-         pstm.setString(1, user);
+        pstm.setString(1, user);
         ResultSet rs = pstm.executeQuery();
         return rs.next();
     }

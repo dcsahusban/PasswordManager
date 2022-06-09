@@ -1,9 +1,7 @@
-package controller;
+    package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ComponentEvent;
-import java.awt.event.ComponentListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -29,7 +27,10 @@ public class DashboardController {
         this.model = model;
         this.view.PasswordPanelActionListerner(new DisplayCredentialTable());
         this.view.GenerateBtnActionListener(new GenerateNewPassword());
-        this.view.AddBtnActionListener(new AddNewCredentials());
+        this.view.AddLoginsBtnActionListener(new DisplayAddLogins());
+        this.view.LoginsBtnActionListener(new DisplayLogins());
+        this.view.SecureNotesBtnActionListener(new DisplaySecureNotes());
+        this.view.SubmitBtnActionListener(new AddNewCredential());
     }
 
     class DisplayCredentialTable implements AncestorListener{
@@ -38,7 +39,7 @@ public class DashboardController {
         public void ancestorAdded(AncestorEvent event) {
             String loggedUser = main.CredentialStore.getLoggedInUser();
             try {
-                System.out.println(model.checkUserDataExists(loggedUser));
+//                System.out.println(model.checkUserDataExists(loggedUser));
                 if(model.checkUserDataExists(loggedUser)){
                     //show table
                     ArrayList<TableModel> list = model.getUserData(loggedUser);
@@ -61,11 +62,11 @@ public class DashboardController {
 
     }
 
-    class AddNewCredentials implements ActionListener {
+    class DisplayAddLogins implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            throw new UnsupportedOperationException("Not supported yet.");
+            view.DisplayAddLoginsPanel();
         }
 
     }
@@ -77,8 +78,45 @@ public class DashboardController {
             String validCharacters = "!@#$%&*.?ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
             String generatedPassword = RandomStringUtils.random(10, validCharacters);
             System.out.println(generatedPassword);
-            view.displayGeneratedPassword(generatedPassword);
+            view.DisplayGeneratedPasswordPanel(generatedPassword);
         }
 
+    }
+    
+    class DisplayLogins implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+            view.DisplayLoginsPanel();
+        }
+    }
+    
+    class DisplaySecureNotes implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+            view.DisplaySecureNotesPanel();
+        }
+        
+    }
+    
+    class AddNewCredential implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+            String website = view.getWebsite();
+            String password = view.getPassword();
+            String loggedUser = main.CredentialStore.getLoggedInUser();
+            
+            try {
+                model.addUserCredential(loggedUser, website, password);
+                view.clearWebsiteField();
+                view.clearPasswordField();
+            } catch(SQLException e) {
+                System.out.println("New Credential insertion failed.");
+                System.out.println(e.getMessage());
+            }
+            
+        }
     }
 }

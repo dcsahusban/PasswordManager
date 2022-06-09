@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package model;
 
 import java.sql.Connection;
@@ -10,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Date;
 /**
  *
  * @author husbankhalid
@@ -51,6 +46,16 @@ public class DashboardModel {
         return list;
     }
     
-
+    public void addUserCredential(String username, String website, String password) throws SQLException {
+        PreparedStatement preStm = conn.prepareStatement("INSERT INTO user_data (usr, website, pwd) "
+                + "VALUES(?, ?, AES_ENCRYPT(?, 'passmanagerKeyPhrase'));");
+        preStm.setString(1, username);
+        preStm.setString(2, website);
+        preStm.setString(3, password);
+        
+        int count = preStm.executeUpdate();
+        
+        System.out.println(count + " row(s) inserted.");
+    }
             
 }
