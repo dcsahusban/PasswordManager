@@ -15,6 +15,7 @@ public class RegisterView extends javax.swing.JFrame {
      */
     public RegisterView() {
         initComponents();
+        this.setResizable(false);        
         this.setLocationRelativeTo(null);
     }
 

@@ -26,13 +26,6 @@ public class LoginController extends FormValidater {
     }
 
     class CheckUserInfo implements ActionListener {
-//        boolean validateUsername(String username) {
-//            return username.length() >= 5 && (!username.contains(" "));
-//        }
-//
-//        boolean validatePassword(String password) {
-//            return password.length() >= 5 && (!password.contains(" "));
-//        }
 
         @Override
         public void actionPerformed(ActionEvent e) {

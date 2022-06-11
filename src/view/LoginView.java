@@ -15,6 +15,7 @@ public class LoginView extends javax.swing.JFrame {
          */
         public LoginView() {
                 initComponents();
+                this.setResizable(false);
                 this.setLocationRelativeTo(null);
         }
 

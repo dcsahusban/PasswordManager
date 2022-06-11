@@ -156,7 +156,7 @@
                       <Component id="Password" min="-2" pref="34" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Component id="LoginBtn" min="-2" pref="36" max="-2" attributes="0"/>
-                      <EmptySpace pref="59" max="32767" attributes="0"/>
+                      <EmptySpace pref="67" max="32767" attributes="0"/>
                       <Component id="RegisterMsg" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="RegisterBtn" min="-2" max="-2" attributes="0"/>

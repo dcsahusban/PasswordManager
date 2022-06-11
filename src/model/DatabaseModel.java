@@ -4,6 +4,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 /**
  *
  * @author harshit
@@ -14,8 +15,8 @@ public interface DatabaseModel {
     
     public final static String PASSKEY = "passmanagerKeyPhrase";
     public final static String DB_USERNAME = "root";
-//    public final static String DB_PASSWORD="abc";
-     public final static String DB_PASSWORD = "root";
+    public final static String DB_PASSWORD="abc";
+//     public final static String DB_PASSWORD = "root";
     
     public static Connection setMySqlConnection(){
         try {
@@ -28,7 +29,7 @@ public interface DatabaseModel {
     }
     
     public static boolean checkData(String table,String user,Connection conn) throws SQLException{
-        PreparedStatement pstm = conn.prepareStatement("select usr from user_data where usr=?");
+        PreparedStatement pstm = conn.prepareStatement("select usr from " + table + " where usr=?");
         pstm.setString(1, user);
         ResultSet rs = pstm.executeQuery();
         return rs.next();
@@ -47,6 +48,43 @@ public interface DatabaseModel {
         pstm.setString(2, user);        
         ResultSet rs = pstm.executeQuery();
         return rs.next() && rs.getString(1).equals(password);
+    }
+    
+    public static ArrayList<TableModel> getUserData(String loggedUser,Connection conn) throws SQLException{
+        PreparedStatement pstm = conn.prepareStatement("select "
+                + "user_data.pwd_id, user_data.website, "
+                + "AES_DECRYPT(user_data.pwd,'passmanagerKeyPhrase'), user_data.ts "
+                + "from users "
+                + "inner join user_data "
+                + "on users.usr=user_data.usr "
+                + "where users.usr=?");
+        pstm.setString(1, loggedUser);
+        ResultSet rs = pstm.executeQuery();
+        ArrayList<TableModel> list = new ArrayList<>();
+        while(rs.next()){                       
+            TableModel data = new TableModel(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getDate(4));
+            list.add(data);
+        }
+        return list;
+    }
+    
+    public static ArrayList<NotesModel> getUserNotes(String loggedUser,Connection conn) throws SQLException{
+        PreparedStatement pstm = conn.prepareStatement("select "
+                + "user_notes.notes_id, "
+                + "AES_DECRYPT(user_notes.title,'passSecureNotesKey'), "
+                + "AES_DECRYPT(user_notes.notes,'passSecureNotesKey'), "
+                + "user_notes.dt "
+                + "from "
+                + "users inner join user_notes on users.usr=user_notes.usr "
+                + "where users.usr=?");
+        pstm.setString(1, loggedUser);
+        ResultSet rs = pstm.executeQuery();
+        ArrayList<NotesModel> list = new ArrayList<>();
+        while(rs.next()){                       
+            NotesModel data = new NotesModel(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getDate(4));
+            list.add(data);
+        }
+        return list;
     }
     
     public Connection getMySqlConnection();

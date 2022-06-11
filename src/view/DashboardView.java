@@ -1,12 +1,24 @@
 package view;
 
+import java.awt.BorderLayout;
+import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.event.AncestorListener;
+import model.NotesModel;
 import model.TableModel;
 
 /**
@@ -20,7 +32,8 @@ public class DashboardView extends javax.swing.JFrame {
      */
     public DashboardView() {
         initComponents();
-        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        this.setLocationRelativeTo(null);      
     }
 
     /**
@@ -45,8 +58,9 @@ public class DashboardView extends javax.swing.JFrame {
         GenerateHeader = new javax.swing.JLabel();
         GeneratedPasswordField = new javax.swing.JTextField();
         SecureNotesPanel = new javax.swing.JPanel();
-        SecureNotesHeader = new javax.swing.JLabel();
         AddSecureNotesButton = new javax.swing.JButton();
+        SecureNotesHeader = new javax.swing.JLabel();
+        SecureNotesDisplay = new javax.swing.JPanel();
         AddLoginsPanel = new javax.swing.JPanel();
         AddLoginsHeader = new javax.swing.JLabel();
         WebsiteLabel = new javax.swing.JLabel();
@@ -55,6 +69,12 @@ public class DashboardView extends javax.swing.JFrame {
         PasswordInputField = new javax.swing.JTextField();
         SubmitButton = new javax.swing.JButton();
         AddSecureNotesPanel = new javax.swing.JPanel();
+        TitleLabel = new javax.swing.JLabel();
+        TitleArea = new javax.swing.JTextField();
+        NotesLabel = new javax.swing.JLabel();
+        TextArea = new javax.swing.JTextField();
+        Heading = new javax.swing.JLabel();
+        NotesSubmit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
@@ -93,13 +113,19 @@ public class DashboardView extends javax.swing.JFrame {
 
         getContentPane().add(SideBar);
 
+        MainPanel.setBackground(new java.awt.Color(255, 255, 255));
         MainPanel.setLayout(new java.awt.CardLayout());
 
+        LoginsPanel.setBackground(new java.awt.Color(255, 255, 255));
+
+        LoginsHeader.setBackground(new java.awt.Color(255, 255, 255));
         LoginsHeader.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
         LoginsHeader.setText("Logins");
 
         AddLoginsButton.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         AddLoginsButton.setText("Add Login");
+
+        PasswordPanel.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout PasswordPanelLayout = new javax.swing.GroupLayout(PasswordPanel);
         PasswordPanel.setLayout(PasswordPanelLayout);
@@ -109,7 +135,7 @@ public class DashboardView extends javax.swing.JFrame {
         );
         PasswordPanelLayout.setVerticalGroup(
             PasswordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 412, Short.MAX_VALUE)
+            .addGap(0, 415, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout LoginsPanelLayout = new javax.swing.GroupLayout(LoginsPanel);
@@ -135,11 +161,10 @@ public class DashboardView extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(AddLoginsButton)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(PasswordPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(PasswordPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        MainPanel.add(LoginsPanel, "card2");
+        MainPanel.add(LoginsPanel, "card1");
 
         GenerateHeader.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         GenerateHeader.setText("Generated Password");
@@ -167,26 +192,43 @@ public class DashboardView extends javax.swing.JFrame {
                 .addComponent(GenerateHeader)
                 .addGap(76, 76, 76)
                 .addComponent(GeneratedPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(310, Short.MAX_VALUE))
+                .addContainerGap(307, Short.MAX_VALUE))
         );
 
-        MainPanel.add(GeneratePanel, "card3");
+        MainPanel.add(GeneratePanel, "card2");
+
+        SecureNotesPanel.setBackground(new java.awt.Color(255, 255, 255));
+        SecureNotesPanel.setPreferredSize(new java.awt.Dimension(708, 496));
+
+        AddSecureNotesButton.setText("Add Notes");
 
         SecureNotesHeader.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         SecureNotesHeader.setText("Secure Notes");
 
-        AddSecureNotesButton.setText("Add Notes");
+        SecureNotesDisplay.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout SecureNotesDisplayLayout = new javax.swing.GroupLayout(SecureNotesDisplay);
+        SecureNotesDisplay.setLayout(SecureNotesDisplayLayout);
+        SecureNotesDisplayLayout.setHorizontalGroup(
+            SecureNotesDisplayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        SecureNotesDisplayLayout.setVerticalGroup(
+            SecureNotesDisplayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 391, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout SecureNotesPanelLayout = new javax.swing.GroupLayout(SecureNotesPanel);
         SecureNotesPanel.setLayout(SecureNotesPanelLayout);
         SecureNotesPanelLayout.setHorizontalGroup(
             SecureNotesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(SecureNotesPanelLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SecureNotesPanelLayout.createSequentialGroup()
                 .addGap(290, 290, 290)
                 .addComponent(SecureNotesHeader)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 176, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 183, Short.MAX_VALUE)
                 .addComponent(AddSecureNotesButton)
                 .addGap(36, 36, 36))
+            .addComponent(SecureNotesDisplay, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         SecureNotesPanelLayout.setVerticalGroup(
             SecureNotesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -195,10 +237,11 @@ public class DashboardView extends javax.swing.JFrame {
                 .addGroup(SecureNotesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SecureNotesHeader)
                     .addComponent(AddSecureNotesButton))
-                .addContainerGap(403, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(SecureNotesDisplay, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        MainPanel.add(SecureNotesPanel, "card4");
+        MainPanel.add(SecureNotesPanel, "card3");
 
         AddLoginsHeader.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         AddLoginsHeader.setText("Add Login Credentials");
@@ -230,7 +273,7 @@ public class DashboardView extends javax.swing.JFrame {
                     .addGroup(AddLoginsPanelLayout.createSequentialGroup()
                         .addGap(275, 275, 275)
                         .addComponent(SubmitButton)))
-                .addContainerGap(155, Short.MAX_VALUE))
+                .addContainerGap(173, Short.MAX_VALUE))
         );
         AddLoginsPanelLayout.setVerticalGroup(
             AddLoginsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -245,107 +288,257 @@ public class DashboardView extends javax.swing.JFrame {
                 .addGroup(AddLoginsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(PasswordLabel)
                     .addComponent(PasswordInputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
                 .addComponent(SubmitButton)
                 .addGap(110, 110, 110))
         );
 
-        MainPanel.add(AddLoginsPanel, "card5");
+        MainPanel.add(AddLoginsPanel, "card4");
+
+        AddSecureNotesPanel.setBackground(new java.awt.Color(255, 255, 255));
+
+        TitleLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        TitleLabel.setText("Title");
+
+        NotesLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        NotesLabel.setText("Notes");
+
+        Heading.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Heading.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Heading.setText("Add Notes");
+
+        NotesSubmit.setText("Submit");
 
         javax.swing.GroupLayout AddSecureNotesPanelLayout = new javax.swing.GroupLayout(AddSecureNotesPanel);
         AddSecureNotesPanel.setLayout(AddSecureNotesPanelLayout);
         AddSecureNotesPanelLayout.setHorizontalGroup(
             AddSecureNotesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 708, Short.MAX_VALUE)
+            .addGroup(AddSecureNotesPanelLayout.createSequentialGroup()
+                .addGroup(AddSecureNotesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(AddSecureNotesPanelLayout.createSequentialGroup()
+                        .addGap(110, 110, 110)
+                        .addGroup(AddSecureNotesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(TitleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(NotesLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE))
+                        .addGap(75, 75, 75)
+                        .addGroup(AddSecureNotesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(TitleArea, javax.swing.GroupLayout.DEFAULT_SIZE, 410, Short.MAX_VALUE)
+                            .addComponent(TextArea)))
+                    .addGroup(AddSecureNotesPanelLayout.createSequentialGroup()
+                        .addGap(176, 176, 176)
+                        .addComponent(Heading, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(AddSecureNotesPanelLayout.createSequentialGroup()
+                        .addGap(291, 291, 291)
+                        .addComponent(NotesSubmit)))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
         AddSecureNotesPanelLayout.setVerticalGroup(
             AddSecureNotesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 495, Short.MAX_VALUE)
+            .addGroup(AddSecureNotesPanelLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(Heading)
+                .addGap(52, 52, 52)
+                .addGroup(AddSecureNotesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TitleArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TitleLabel))
+                .addGap(59, 59, 59)
+                .addGroup(AddSecureNotesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TextArea, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(NotesLabel))
+                .addGap(18, 18, 18)
+                .addComponent(NotesSubmit)
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
-        MainPanel.add(AddSecureNotesPanel, "card6");
+        MainPanel.add(AddSecureNotesPanel, "card5");
 
         getContentPane().add(MainPanel);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void PasswordPanelActionListerner(AncestorListener evt) {
-        LoginsPanel.addAncestorListener(evt);
-    }
-    
+    //Show User data using JTable 
+    /*
     public void DisplayTable(ArrayList<TableModel> list){
-        int size = list.size();
+        int size = list.size();     
         Object[][] data = new Object[size][];
         for(int i=0;i<size;i++){
-            data[i] = new Object[]{list.get(i).getID(),list.get(i).getSite(),list.get(i).getPwd(),list.get(i).getDate()};
+            data[i] = new Object[]{i+1,list.get(i).getSite(),list.get(i).getPwd(),list.get(i).getDate()};
         }
         String[] col = new String[]{"ID","Website","Password","Date Created"};
         JTable Table = new JTable(data, col);
         JScrollPane scroll = new JScrollPane(Table);
         scroll.getViewport().setBackground(Color.WHITE);
         scroll.setSize(LoginsPanel.getWidth(), LoginsPanel.getHeight());
+        PasswordPanel.removeAll();
+        PasswordPanel.add(scroll);
+        PasswordPanel.repaint();
+        PasswordPanel.revalidate();
+    }
+    */
+    
+    /*
+        Event Listeners
+    */
+    public void PasswordPanelActionListerner(AncestorListener evt) {
+        PasswordPanel.addAncestorListener(evt);
+    }
+    public void SecureNotesDisplayActionListerner(AncestorListener evt){
+        SecureNotesDisplay.addAncestorListener(evt);
+    }
+    
+    /*
+        Password Panel data display
+    */
+    public void showPasswordPanelMessage() {
+        JLabel msgLabel = new JLabel("Click Add button to store password", JLabel.CENTER);
+        msgLabel.setSize(PasswordPanel.getWidth(), 50);
+        PasswordPanel.removeAll();
+        PasswordPanel.add(msgLabel);
+        PasswordPanel.repaint();
+    }
+    public void DisplayUserData(ArrayList<TableModel> list){
+        int size = list.size();
+        JPanel panel = new JPanel();
+        GridLayout layout = new GridLayout(size, 1);
+//        layout.setVgap(0);
+        panel.setLayout(layout);        
+        for(int i=0;i<size;i++){
+            DataView dataView = new DataView(
+                    list.get(i).getSite(),
+                    list.get(i).getPwd(),
+                    "Pwd",
+                    list.get(i).getID()
+            );
+            dataView.setVisible(true);
+            panel.add(dataView);    
+        }   
+        JScrollPane scroll = null;
+        if (size > 4) {
+            scroll = new JScrollPane(panel, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+            scroll.setSize(PasswordPanel.getWidth(),PasswordPanel.getHeight());
+        } else {
+            scroll = new JScrollPane(panel, JScrollPane.VERTICAL_SCROLLBAR_NEVER, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+            scroll.setSize(PasswordPanel.getWidth(),panel.getPreferredSize().height);
+        }
+        scroll.getViewport().setBackground(Color.WHITE);
+        scroll.setBorder(BorderFactory.createEmptyBorder());
+        PasswordPanel.removeAll();
         PasswordPanel.add(scroll);
         PasswordPanel.repaint();
     }
     
-    public void showMessage() {
-        JLabel msgLabel = new JLabel("Click Add button to store password", JLabel.CENTER);
-        msgLabel.setSize(LoginsPanel.getWidth(), 50);
-        PasswordPanel.add(msgLabel);
-        PasswordPanel.repaint();
+    /*
+        Secure Notes Panel data display
+    */
+    public void showSecureNotesMessage() {
+        JLabel msgLabel = new JLabel("Click Add button to store notes", JLabel.CENTER);
+        msgLabel.setSize(SecureNotesDisplay.getWidth(), 50);
+        SecureNotesDisplay.removeAll();
+        SecureNotesDisplay.add(msgLabel);
+        SecureNotesDisplay.repaint();
     }
-    
+    public void DisplayUserNotes(ArrayList<NotesModel> list){
+        int size = list.size();
+        JPanel panel = new JPanel();
+        GridLayout layout = new GridLayout(size, 1);
+//        layout.setVgap(0);
+        panel.setLayout(layout);        
+        for(int i=0;i<size;i++){
+            DataView dataView = new DataView(
+                    list.get(i).getTitle(),
+                    list.get(i).getNotes(),
+                    "Notes",
+                    list.get(i).getID()                    
+            );
+            dataView.setVisible(true);
+            panel.add(dataView);
+        }    
+        JScrollPane scroll=null;
+        if (size > 4) {
+            scroll = new JScrollPane(panel, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+            scroll.setSize(SecureNotesDisplay.getWidth(),SecureNotesDisplay.getHeight());
+        } else {
+            scroll = new JScrollPane(panel, JScrollPane.VERTICAL_SCROLLBAR_NEVER, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+            scroll.setSize(SecureNotesDisplay.getWidth(),panel.getPreferredSize().height);
+        }
+        scroll.getViewport().setBackground(Color.WHITE);
+        SecureNotesDisplay.removeAll();
+        SecureNotesDisplay.add(scroll);
+        SecureNotesDisplay.repaint();
+    }
+    /*
+        Button Actions Listeners
+    */
     public void AddLoginsBtnActionListener(ActionListener action) {
         AddLoginsButton.addActionListener(action);
     }
-
+    public void DisplayAddLoginsPanel() {
+        CardLayout cardLayout = (CardLayout)MainPanel.getLayout();
+        cardLayout.show(MainPanel, "card4");
+    }
+    
     public void GenerateBtnActionListener(ActionListener action) {
         GenerateBtn.addActionListener(action);
     }
+    public void DisplayGeneratedPasswordPanel(String generatedPassword) {
+//        JOptionPane.showMessageDialog(this, new JPanel().add(new JTextField(generatedPassword)), "Generated Password", JOptionPane.INFORMATION_MESSAGE);
+          GeneratedPasswordField.setText(generatedPassword);
+          CardLayout cardLayout = (CardLayout)MainPanel.getLayout();
+          cardLayout.show(MainPanel, "card2");         
+    }    
     
     public void LoginsBtnActionListener(ActionListener action) {
         LoginsBtn.addActionListener(action);
-    }
+    }    
+    public void DisplayLoginsPanel() {
+          CardLayout cardLayout = (CardLayout)MainPanel.getLayout();
+          cardLayout.show(MainPanel, "card1");      
+    }    
+    public void SubmitBtnActionListener(ActionListener action) {
+        SubmitButton.addActionListener(action);
+    }   
     
     public void SecureNotesBtnActionListener(ActionListener action) {
         SecureNotesBtn.addActionListener(action);
     }
-    
-    public void SubmitBtnActionListener(ActionListener action) {
-        SubmitButton.addActionListener(action);
+    public void DisplaySecureNotesPanel() {    
+        CardLayout cardLayout = (CardLayout)MainPanel.getLayout();
+        cardLayout.show(MainPanel, "card3");        
+    }    
+    public void SecureNotesAddBtnActionListener(ActionListener action){
+        AddSecureNotesButton.addActionListener(action);
+    }    
+    public void DisplaySecureNotesArea() {
+//        JDialog txtArea = new JDialog(this,"Notes");
+//        txtArea.setLocationRelativeTo(null);
+//        JPanel panel = new JPanel();
+//        panel.setLayout(new BorderLayout());
+//        panel.setSize(300, 300);
+//        panel.setBackground(Color.WHITE);
+//        JTextField title = new JTextField("Enter Notes Title");
+//        JTextArea notes = new JTextArea(" ");
+//        notes.setLineWrap(true);
+//        JScrollPane scroll = new JScrollPane(notes);
+//        scroll.setPreferredSize(new Dimension(300, 200));
+//        JButton addNotes = new JButton("Add");
+//        panel.add(title,BorderLayout.NORTH);
+//        panel.add(scroll,BorderLayout.CENTER);
+//        panel.add(addNotes,BorderLayout.SOUTH);
+//        panel.setVisible(true);
+//        txtArea.add(panel);
+//        txtArea.setSize(300, 300);
+//        txtArea.setVisible(true);
+        CardLayout cardLayout = (CardLayout) MainPanel.getLayout();
+        cardLayout.show(MainPanel, "card5");
     }
+    public void NotesSubmitActionListener(ActionListener action){
+        NotesSubmit.addActionListener(action);
+    }    
     
-    public void DisplayGeneratedPasswordPanel(String generatedPassword) {
-//        JOptionPane.showMessageDialog(this, new JPanel().add(new JTextField(generatedPassword)), "Generated Password", JOptionPane.INFORMATION_MESSAGE);
-          GeneratedPasswordField.setText(generatedPassword);
-          MainPanel.removeAll();
-          MainPanel.add(GeneratePanel);
-          MainPanel.repaint();
-          MainPanel.revalidate();          
-    }
-    
-    public void DisplayLoginsPanel() {
-          MainPanel.removeAll();
-          MainPanel.add(LoginsPanel);
-          MainPanel.repaint();
-          MainPanel.revalidate();          
-    }
-    
-    public void DisplaySecureNotesPanel() {
-          MainPanel.removeAll();
-          MainPanel.add(SecureNotesPanel);
-          MainPanel.repaint();
-          MainPanel.revalidate();          
-    }
-    
-    public void DisplayAddLoginsPanel() {
-          MainPanel.removeAll();
-          MainPanel.add(AddLoginsPanel);
-          MainPanel.repaint();
-          MainPanel.revalidate();           
-    }
-    
+    /*
+        Utility method
+    */
     public String getWebsite() {
         return WebsiteInputField.getText();
     }
@@ -354,13 +547,35 @@ public class DashboardView extends javax.swing.JFrame {
         return PasswordInputField.getText();
     }
     
+    public String getNotesTitle() {
+        return TitleArea.getText();
+    }
+    
+    public String getSecureNotesTxt(){
+        return TextArea.getText();
+    }
+    
     public void clearWebsiteField() {
         WebsiteInputField.setText("");
     }
-    
     public void clearPasswordField() {
         PasswordInputField.setText("");
     }
+    public void clearTitleField(){
+        TitleArea.setText("");
+    }
+    public void clearTextField(){
+        TextArea.setText("");
+    }
+    
+    public void showSuccess(String succMsg){
+        JOptionPane.showMessageDialog(this,succMsg,"Credentials",JOptionPane.INFORMATION_MESSAGE);
+    }
+    
+    public void showError(String errorMsg){
+        JOptionPane.showMessageDialog(this, errorMsg,"Credentials",JOptionPane.WARNING_MESSAGE);
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddLoginsButton;
@@ -372,18 +587,25 @@ public class DashboardView extends javax.swing.JFrame {
     private javax.swing.JLabel GenerateHeader;
     private javax.swing.JPanel GeneratePanel;
     private javax.swing.JTextField GeneratedPasswordField;
+    private javax.swing.JLabel Heading;
     private javax.swing.JButton LoginsBtn;
     private javax.swing.JLabel LoginsHeader;
     private javax.swing.JPanel LoginsPanel;
     private javax.swing.JPanel MainPanel;
+    private javax.swing.JLabel NotesLabel;
+    private javax.swing.JButton NotesSubmit;
     private javax.swing.JTextField PasswordInputField;
     private javax.swing.JLabel PasswordLabel;
     private javax.swing.JPanel PasswordPanel;
     private javax.swing.JButton SecureNotesBtn;
+    private javax.swing.JPanel SecureNotesDisplay;
     private javax.swing.JLabel SecureNotesHeader;
     private javax.swing.JPanel SecureNotesPanel;
     private javax.swing.JPanel SideBar;
     private javax.swing.JButton SubmitButton;
+    private javax.swing.JTextField TextArea;
+    private javax.swing.JTextField TitleArea;
+    private javax.swing.JLabel TitleLabel;
     private javax.swing.JTextField WebsiteInputField;
     private javax.swing.JLabel WebsiteLabel;
     // End of variables declaration//GEN-END:variables
