@@ -16,6 +16,8 @@ import model.NotesModel;
 import model.TableModel;
 import org.apache.commons.lang3.*;
 import view.DataView;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 /**
  *
@@ -40,6 +42,8 @@ public class DashboardController {
         this.view.SecureNotesAddBtnActionListener(new AddSecureNotes());
         this.view.SecureNotesBtnActionListener(new DisplaySecureNotes());
         this.view.NotesSubmitActionListener(new SubmitSecureNotes());
+        this.view.PasswordLenghtSliderChangeListener(new PasswordLengthChanger());
+        this.view.CheckBoxActionListener(new PasswordElementsChanger());
     }    
 
     public void updateUserInfo(boolean type,String loggedUser,Connection conn){
@@ -64,6 +68,35 @@ public class DashboardController {
         } catch (SQLException ex) {
             Logger.getLogger(DashboardController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+//    public void generatePassword() {
+//        int length = view.getPasswordLength();
+//        String validCharacters = "!@#$%&*.?ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+//        String generatedPassword = RandomStringUtils.random(length, validCharacters);
+//        System.out.println(generatedPassword);
+//        view.DisplayGeneratedPasswordPanel(generatedPassword);
+//    }
+    
+    public void generatePassword() {
+        int length = view.getPasswordLength();
+        String validCharacters = "abcdefghijklmnopqrstuvwxyz";
+        
+        if(view.getMixedCaseStatus()) {
+            validCharacters += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        }
+        
+        if(view.getNumberStatus()) {
+            validCharacters += "0123456789";
+        }
+        
+        if(view.getPunctuationStatus()) {
+            validCharacters += "!@#$%&*.?";
+        }
+        
+        String generatedPassword = RandomStringUtils.random(length, validCharacters);
+        System.out.println(generatedPassword);
+        view.DisplayGeneratedPasswordPanel(generatedPassword);
     }
     
     class DisplayCredential implements AncestorListener {
@@ -133,10 +166,7 @@ public class DashboardController {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            String validCharacters = "!@#$%&*.?ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-            String generatedPassword = RandomStringUtils.random(10, validCharacters);
-            System.out.println(generatedPassword);
-            view.DisplayGeneratedPasswordPanel(generatedPassword);
+            generatePassword();
         }
 
     }
@@ -202,6 +232,24 @@ public class DashboardController {
 
         }
 
+    }
+    
+    class PasswordLengthChanger implements ChangeListener {
+
+        @Override
+        public void stateChanged(ChangeEvent c) {
+            generatePassword();
+        }
+        
+    }
+    
+    class PasswordElementsChanger implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent a) {
+            generatePassword();
+        }
+        
     }
 }  
 

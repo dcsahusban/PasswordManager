@@ -20,6 +20,7 @@ import javax.swing.JTextField;
 import javax.swing.event.AncestorListener;
 import model.NotesModel;
 import model.TableModel;
+import javax.swing.event.ChangeListener;
 
 /**
  *
@@ -57,6 +58,13 @@ public class DashboardView extends javax.swing.JFrame {
         GeneratePanel = new javax.swing.JPanel();
         GenerateHeader = new javax.swing.JLabel();
         GeneratedPasswordField = new javax.swing.JTextField();
+        PasswordLengthSlider = new javax.swing.JSlider();
+        PasswordLengthLabel = new javax.swing.JLabel();
+        PasswordMinLengthLabel = new javax.swing.JLabel();
+        PasswordMinLengthLabel1 = new javax.swing.JLabel();
+        MixedCaseCheckBox = new javax.swing.JCheckBox();
+        PunctuationCheckBox = new javax.swing.JCheckBox();
+        NumbersCheckBox = new javax.swing.JCheckBox();
         SecureNotesPanel = new javax.swing.JPanel();
         AddSecureNotesButton = new javax.swing.JButton();
         SecureNotesHeader = new javax.swing.JLabel();
@@ -170,6 +178,26 @@ public class DashboardView extends javax.swing.JFrame {
         GenerateHeader.setText("Generated Password");
 
         GeneratedPasswordField.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
+        GeneratedPasswordField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        PasswordLengthSlider.setMaximum(20);
+        PasswordLengthSlider.setMinimum(8);
+        PasswordLengthSlider.setValue(8);
+
+        PasswordLengthLabel.setText("Password Lenght: 8 - 20");
+
+        PasswordMinLengthLabel.setText("8");
+
+        PasswordMinLengthLabel1.setText("20");
+
+        MixedCaseCheckBox.setSelected(true);
+        MixedCaseCheckBox.setText("Mixed Case");
+
+        PunctuationCheckBox.setSelected(true);
+        PunctuationCheckBox.setText("Punctuation");
+
+        NumbersCheckBox.setSelected(true);
+        NumbersCheckBox.setText("Numbers");
 
         javax.swing.GroupLayout GeneratePanelLayout = new javax.swing.GroupLayout(GeneratePanel);
         GeneratePanel.setLayout(GeneratePanelLayout);
@@ -181,9 +209,28 @@ public class DashboardView extends javax.swing.JFrame {
                         .addGap(276, 276, 276)
                         .addComponent(GenerateHeader))
                     .addGroup(GeneratePanelLayout.createSequentialGroup()
+                        .addGap(271, 271, 271)
+                        .addComponent(PasswordLengthLabel))
+                    .addGroup(GeneratePanelLayout.createSequentialGroup()
                         .addGap(183, 183, 183)
-                        .addComponent(GeneratedPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(173, Short.MAX_VALUE))
+                        .addComponent(GeneratedPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(GeneratePanelLayout.createSequentialGroup()
+                        .addGap(167, 167, 167)
+                        .addGroup(GeneratePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(GeneratePanelLayout.createSequentialGroup()
+                                .addComponent(MixedCaseCheckBox)
+                                .addGap(49, 49, 49)
+                                .addComponent(PunctuationCheckBox)
+                                .addGap(32, 32, 32))
+                            .addGroup(GeneratePanelLayout.createSequentialGroup()
+                                .addComponent(PasswordMinLengthLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(PasswordLengthSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(GeneratePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(PasswordMinLengthLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(NumbersCheckBox))))
+                .addContainerGap(162, Short.MAX_VALUE))
         );
         GeneratePanelLayout.setVerticalGroup(
             GeneratePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,7 +239,19 @@ public class DashboardView extends javax.swing.JFrame {
                 .addComponent(GenerateHeader)
                 .addGap(76, 76, 76)
                 .addComponent(GeneratedPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(307, Short.MAX_VALUE))
+                .addGap(46, 46, 46)
+                .addComponent(PasswordLengthLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(GeneratePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(PasswordLengthSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PasswordMinLengthLabel)
+                    .addComponent(PasswordMinLengthLabel1))
+                .addGap(75, 75, 75)
+                .addGroup(GeneratePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(MixedCaseCheckBox)
+                    .addComponent(PunctuationCheckBox)
+                    .addComponent(NumbersCheckBox))
+                .addContainerGap(118, Short.MAX_VALUE))
         );
 
         MainPanel.add(GeneratePanel, "card2");
@@ -508,7 +567,18 @@ public class DashboardView extends javax.swing.JFrame {
     }    
     public void SecureNotesAddBtnActionListener(ActionListener action){
         AddSecureNotesButton.addActionListener(action);
-    }    
+    } 
+    
+    public void PasswordLenghtSliderChangeListener(ChangeListener change) {
+        PasswordLengthSlider.addChangeListener(change);
+    }
+    
+    public void CheckBoxActionListener(ActionListener action) {
+        MixedCaseCheckBox.addActionListener(action);
+        PunctuationCheckBox.addActionListener(action);
+        NumbersCheckBox.addActionListener(action);
+    }
+    
     public void DisplaySecureNotesArea() {
 //        JDialog txtArea = new JDialog(this,"Notes");
 //        txtArea.setLocationRelativeTo(null);
@@ -551,10 +621,26 @@ public class DashboardView extends javax.swing.JFrame {
         return TitleArea.getText();
     }
     
-    public String getSecureNotesTxt(){
+    public String getSecureNotesTxt() {
         return TextArea.getText();
     }
     
+    public int getPasswordLength() {
+        return PasswordLengthSlider.getValue();
+    }
+    
+    public boolean getMixedCaseStatus() {
+        return MixedCaseCheckBox.isSelected();
+    }
+    
+    public boolean getPunctuationStatus() {
+        return PunctuationCheckBox.isSelected();
+    }
+    
+    public boolean getNumberStatus() {
+        return NumbersCheckBox.isSelected();
+    }
+       
     public void clearWebsiteField() {
         WebsiteInputField.setText("");
     }
@@ -592,11 +678,18 @@ public class DashboardView extends javax.swing.JFrame {
     private javax.swing.JLabel LoginsHeader;
     private javax.swing.JPanel LoginsPanel;
     private javax.swing.JPanel MainPanel;
+    private javax.swing.JCheckBox MixedCaseCheckBox;
     private javax.swing.JLabel NotesLabel;
     private javax.swing.JButton NotesSubmit;
+    private javax.swing.JCheckBox NumbersCheckBox;
     private javax.swing.JTextField PasswordInputField;
     private javax.swing.JLabel PasswordLabel;
+    private javax.swing.JLabel PasswordLengthLabel;
+    private javax.swing.JSlider PasswordLengthSlider;
+    private javax.swing.JLabel PasswordMinLengthLabel;
+    private javax.swing.JLabel PasswordMinLengthLabel1;
     private javax.swing.JPanel PasswordPanel;
+    private javax.swing.JCheckBox PunctuationCheckBox;
     private javax.swing.JButton SecureNotesBtn;
     private javax.swing.JPanel SecureNotesDisplay;
     private javax.swing.JLabel SecureNotesHeader;
