@@ -8,8 +8,8 @@ import model.RegisterModel;
 
 /**
  *
- * @author husban
- * @author harshit
+ * @author Husban
+ * @author Harshit
  */
 public class RegisterController extends FormValidater {
 
@@ -43,7 +43,6 @@ public class RegisterController extends FormValidater {
                 view.displayPasswordError();
             }
             
-            //TODO change db username to be unique
             try {
                 if(model.isUserExist(username)) {
                     view.displayUsernameExistError();

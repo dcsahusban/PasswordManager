@@ -7,8 +7,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 /**
  *
- * @author harshit
- * @author husban
+ * @author Harshit
+ * @author Husban
  */
 
 public interface DatabaseModel {
@@ -22,8 +22,8 @@ public interface DatabaseModel {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             return DriverManager.getConnection("jdbc:mysql://localhost/passwordmanager", DatabaseModel.DB_USERNAME, DatabaseModel.DB_PASSWORD);            
-        } catch (ClassNotFoundException | SQLException ex) {
-            ex.printStackTrace();
+        } catch (ClassNotFoundException | SQLException e) {
+            System.out.println(e.getMessage());
             return null;
         }        
     }

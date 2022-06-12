@@ -2,8 +2,8 @@ package controller;
 
 /**
  *
- * @author husban
- * @author harshit
+ * @author Husban
+ * @author Harshit
  */
 
 public abstract class FormValidater {

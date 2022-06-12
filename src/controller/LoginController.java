@@ -9,8 +9,8 @@ import model.LoginModel;
 
 /**
  *
- * @author harshit
- * @author husban
+ * @author Harshit
+ * @author Husban
  */
 public class LoginController extends FormValidater {
 
@@ -59,14 +59,14 @@ public class LoginController extends FormValidater {
         }
     }
 
-class DisplayRegisterView implements ActionListener {
+    class DisplayRegisterView implements ActionListener {
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        view.setVisible(false);
-        main.Initialize.getIntance().getRegisterView().setVisible(true);
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            view.setVisible(false);
+            main.Initialize.getIntance().getRegisterView().setVisible(true);
+        }
+
     }
-
-}
 
 }

@@ -4,8 +4,8 @@ import java.sql.*;
 
 /**
  *
- * @author harshit
- * @author husban
+ * @author Harshit
+ * @author Husban
  */
 
 public class LoginModel {

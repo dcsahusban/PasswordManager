@@ -15,13 +15,13 @@ import model.DatabaseModel;
 import model.NotesModel;
 import model.TableModel;
 import org.apache.commons.lang3.*;
-import view.DataView;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 /**
  *
- * @author husban
+ * @author Husban
+ * @author Harshit
  */
 public class DashboardController {
 
@@ -50,11 +50,9 @@ public class DashboardController {
         try {
             if (type) {
                 if (model.checkUserDataExists(loggedUser)) {
-                    //show table
                     ArrayList<TableModel> data = DatabaseModel.getUserData(loggedUser, conn);
                     view.DisplayUserData(data);
                 } else {
-                    //show message
                     view.showPasswordPanelMessage();
                 }
             } else {
@@ -69,15 +67,7 @@ public class DashboardController {
             Logger.getLogger(DashboardController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-//    public void generatePassword() {
-//        int length = view.getPasswordLength();
-//        String validCharacters = "!@#$%&*.?ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-//        String generatedPassword = RandomStringUtils.random(length, validCharacters);
-//        System.out.println(generatedPassword);
-//        view.DisplayGeneratedPasswordPanel(generatedPassword);
-//    }
-    
+        
     public void generatePassword() {
         int length = view.getPasswordLength();
         String validCharacters = "abcdefghijklmnopqrstuvwxyz";
@@ -100,36 +90,42 @@ public class DashboardController {
     }
     
     class DisplayCredential implements AncestorListener {
+        
         @Override
         public void ancestorAdded(AncestorEvent event) {
             String loggedUser = main.CredentialStore.getLoggedInUser();
             try {
                 if (model.checkUserDataExists(loggedUser)) {
-                    //show table
                     ArrayList<TableModel> data = DatabaseModel.getUserData(loggedUser, main.Initialize.getIntance().getMySqlConnection());
                     view.DisplayUserData(data);
                 } else {
-                    //show message
                     view.showPasswordPanelMessage();
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(DashboardController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        
         @Override
         public void ancestorRemoved(AncestorEvent event) {
+            
         }
+        
         @Override
         public void ancestorMoved(AncestorEvent event) {
+            
         }
     }
     
     class DisplayLogins implements ActionListener {
+        
         @Override
-        public void actionPerformed(ActionEvent ae) {
+        public void actionPerformed(ActionEvent e) {
             view.DisplayLoginsPanel();
         }
+        
     }
+    
     class DisplayAddLogins implements ActionListener {
 
         @Override
@@ -138,6 +134,7 @@ public class DashboardController {
         }
 
     }
+    
     class AddNewCredential implements ActionListener {
 
         @Override
@@ -179,11 +176,9 @@ public class DashboardController {
             String loggedUser = main.CredentialStore.getLoggedInUser();
             try {
                 if (model.checkUserNotesExists(loggedUser)) {
-                    //show table
                     ArrayList<NotesModel> data = DatabaseModel.getUserNotes(loggedUser, main.Initialize.getIntance().getMySqlConnection());
                     view.DisplayUserNotes(data);
                 } else {
-                    //show message
                     view.showSecureNotesMessage();
                 }
             } catch (SQLException ex) {
@@ -191,9 +186,14 @@ public class DashboardController {
             }
         }
         @Override
-        public void ancestorRemoved(AncestorEvent event) {}
+        public void ancestorRemoved(AncestorEvent event) {
+            
+        }
+        
         @Override
-        public void ancestorMoved(AncestorEvent event) {}        
+        public void ancestorMoved(AncestorEvent event) {
+            
+        }        
     }
     class AddSecureNotes implements ActionListener {
 

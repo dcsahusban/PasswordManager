@@ -4,8 +4,8 @@ import java.sql.*;
 
 /**
  *
- * @author husban
- * @author harshit
+ * @author Husban
+ * @author Harshit
  */
 
 public class RegisterModel {

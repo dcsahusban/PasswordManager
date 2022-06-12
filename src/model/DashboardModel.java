@@ -5,10 +5,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
+
 /**
  *
- * @author husbankhalid
+ * @author Husban
+ * @author Harshit
  */
 public class DashboardModel {
     
@@ -25,11 +26,11 @@ public class DashboardModel {
     public boolean checkUserDataExists(String loggedUsername) throws SQLException{
         return DatabaseModel.checkData("user_data", loggedUsername, conn);
     }     
+    
     public boolean checkUserNotesExists(String loggedUsername) throws SQLException{
         return DatabaseModel.checkData("user_notes", loggedUsername, conn);
     }
-    
-    
+        
     public boolean addUserCredential(String username, String website, String password) throws SQLException {
         PreparedStatement preStm = conn.prepareStatement("INSERT INTO user_data (usr, website, pwd) "
                 + "VALUES(?, ?, AES_ENCRYPT(?, 'passmanagerKeyPhrase'));");
@@ -39,7 +40,7 @@ public class DashboardModel {
         
         int count = preStm.executeUpdate();        
         System.out.println(count + " row(s) inserted.");
-        return count>0;
+        return count > 0;
     }
             
     public boolean addUserNotes(String username, String title, String notes) throws SQLException{
@@ -50,6 +51,6 @@ public class DashboardModel {
         preStm.setString(3, notes);
         int count = preStm.executeUpdate();
         System.out.println(count + " row(s) inserted.");
-        return count>0;
+        return count > 0;
     }
 }

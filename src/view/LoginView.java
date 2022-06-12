@@ -5,8 +5,8 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author harshit
- * @author husban
+ * @author Harshit
+ * @author Husban
  */
 public class LoginView extends javax.swing.JFrame {
 
@@ -14,9 +14,9 @@ public class LoginView extends javax.swing.JFrame {
          * Creates new form Login
          */
         public LoginView() {
-                initComponents();
-                this.setResizable(false);
-                this.setLocationRelativeTo(null);
+            initComponents();
+            this.setResizable(false);
+            this.setLocationRelativeTo(null);
         }
 
         /**

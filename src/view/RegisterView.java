@@ -5,8 +5,8 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author husban
- * @author harshit
+ * @author Husban
+ * @author Harshit
  */
 public class RegisterView extends javax.swing.JFrame {
 

@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package model;
 
 import java.sql.PreparedStatement;
@@ -9,7 +5,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 /**
  *
- * @author harshit
+ * @author Harshit
  */
 public class DataViewModel {
     
@@ -24,7 +20,7 @@ public class DataViewModel {
         System.out.println("Deleting...");
         int count = preStm.executeUpdate();        
         System.out.println(count + " row(s) deleted.");
-        return count>0;
+        return count > 0;
     }
     
     public boolean deleteUserNotes(int id,Connection conn) throws SQLException{
@@ -34,6 +30,6 @@ public class DataViewModel {
         System.out.println("Deleting...");
         int count = preStm.executeUpdate();        
         System.out.println(count + " row(s) deleted.");
-        return count>0;
+        return count > 0;
     }
 }

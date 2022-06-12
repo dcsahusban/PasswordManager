@@ -10,8 +10,8 @@ import view.RegisterView;
 
 /**
  *
- * @author harshit
- * @author husban
+ * @author Harshit
+ * @author Husban
  */
 
 public abstract class InstanceStore {

@@ -1,20 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package view;
 
-import controller.DataViewController;
-import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import main.InstanceStore;
 
 /**
  *
- * @author harshit
+ * @author Harshit
  */
 public final class DataView extends javax.swing.JPanel {
 
@@ -22,7 +15,6 @@ public final class DataView extends javax.swing.JPanel {
      * Creates new form DataView
      */
     
-    //Pwd=Password Note=Sucre Notes
     private final String title; 
     private final String ticker;
     private final String type;

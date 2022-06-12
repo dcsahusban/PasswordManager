@@ -14,12 +14,11 @@ import controller.DataViewController;
 import model.DatabaseModel;
 import java.sql.Connection;
 import model.DataViewModel;
-import view.DataView;
 
 /**
  *
- * @author harshit
- * @author husban
+ * @author Harshit
+ * @author Husban
  */
 public class Initialize extends InstanceStore implements DatabaseModel {
 
@@ -97,10 +96,7 @@ public class Initialize extends InstanceStore implements DatabaseModel {
                 System.out.println(e.getMessage());
             }
         } else {
-            
-            //TODO Display Error Window
             System.out.println("Connection not established");
-           
         }    
     }
 

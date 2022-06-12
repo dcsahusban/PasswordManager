@@ -1,22 +1,15 @@
 package view;
 
-import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
 import javax.swing.event.AncestorListener;
 import model.NotesModel;
 import model.TableModel;
@@ -24,7 +17,8 @@ import javax.swing.event.ChangeListener;
 
 /**
  *
- * @author husban
+ * @author Husban
+ * @author Harshit
  */
 public class DashboardView extends javax.swing.JFrame {
 
@@ -143,7 +137,7 @@ public class DashboardView extends javax.swing.JFrame {
         );
         PasswordPanelLayout.setVerticalGroup(
             PasswordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 415, Short.MAX_VALUE)
+            .addGap(0, 420, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout LoginsPanelLayout = new javax.swing.GroupLayout(LoginsPanel);
@@ -251,7 +245,7 @@ public class DashboardView extends javax.swing.JFrame {
                     .addComponent(MixedCaseCheckBox)
                     .addComponent(PunctuationCheckBox)
                     .addComponent(NumbersCheckBox))
-                .addContainerGap(118, Short.MAX_VALUE))
+                .addContainerGap(119, Short.MAX_VALUE))
         );
 
         MainPanel.add(GeneratePanel, "card2");
@@ -274,7 +268,7 @@ public class DashboardView extends javax.swing.JFrame {
         );
         SecureNotesDisplayLayout.setVerticalGroup(
             SecureNotesDisplayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 391, Short.MAX_VALUE)
+            .addGap(0, 393, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout SecureNotesPanelLayout = new javax.swing.GroupLayout(SecureNotesPanel);
@@ -322,17 +316,17 @@ public class DashboardView extends javax.swing.JFrame {
                         .addComponent(AddLoginsHeader))
                     .addGroup(AddLoginsPanelLayout.createSequentialGroup()
                         .addGap(152, 152, 152)
-                        .addGroup(AddLoginsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(WebsiteLabel)
-                            .addComponent(PasswordLabel))
-                        .addGap(151, 151, 151)
-                        .addGroup(AddLoginsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(WebsiteInputField, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-                            .addComponent(PasswordInputField)))
-                    .addGroup(AddLoginsPanelLayout.createSequentialGroup()
-                        .addGap(275, 275, 275)
-                        .addComponent(SubmitButton)))
-                .addContainerGap(173, Short.MAX_VALUE))
+                        .addGroup(AddLoginsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(SubmitButton)
+                            .addGroup(AddLoginsPanelLayout.createSequentialGroup()
+                                .addGroup(AddLoginsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(WebsiteLabel)
+                                    .addComponent(PasswordLabel))
+                                .addGap(151, 151, 151)
+                                .addGroup(AddLoginsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(WebsiteInputField, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+                                    .addComponent(PasswordInputField))))))
+                .addContainerGap(157, Short.MAX_VALUE))
         );
         AddLoginsPanelLayout.setVerticalGroup(
             AddLoginsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -347,9 +341,9 @@ public class DashboardView extends javax.swing.JFrame {
                 .addGroup(AddLoginsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(PasswordLabel)
                     .addComponent(PasswordInputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                .addGap(79, 79, 79)
                 .addComponent(SubmitButton)
-                .addGap(110, 110, 110))
+                .addContainerGap(109, Short.MAX_VALUE))
         );
 
         MainPanel.add(AddLoginsPanel, "card4");
@@ -375,21 +369,21 @@ public class DashboardView extends javax.swing.JFrame {
             .addGroup(AddSecureNotesPanelLayout.createSequentialGroup()
                 .addGroup(AddSecureNotesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(AddSecureNotesPanelLayout.createSequentialGroup()
-                        .addGap(110, 110, 110)
-                        .addGroup(AddSecureNotesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(TitleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(NotesLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE))
-                        .addGap(75, 75, 75)
-                        .addGroup(AddSecureNotesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(TitleArea, javax.swing.GroupLayout.DEFAULT_SIZE, 410, Short.MAX_VALUE)
-                            .addComponent(TextArea)))
-                    .addGroup(AddSecureNotesPanelLayout.createSequentialGroup()
                         .addGap(176, 176, 176)
                         .addComponent(Heading, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(AddSecureNotesPanelLayout.createSequentialGroup()
-                        .addGap(291, 291, 291)
-                        .addComponent(NotesSubmit)))
-                .addContainerGap(68, Short.MAX_VALUE))
+                        .addGap(110, 110, 110)
+                        .addGroup(AddSecureNotesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(NotesSubmit)
+                            .addGroup(AddSecureNotesPanelLayout.createSequentialGroup()
+                                .addGroup(AddSecureNotesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(TitleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(NotesLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE))
+                                .addGap(75, 75, 75)
+                                .addGroup(AddSecureNotesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(TitleArea, javax.swing.GroupLayout.DEFAULT_SIZE, 410, Short.MAX_VALUE)
+                                    .addComponent(TextArea))))))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
         AddSecureNotesPanelLayout.setVerticalGroup(
             AddSecureNotesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -402,11 +396,11 @@ public class DashboardView extends javax.swing.JFrame {
                     .addComponent(TitleLabel))
                 .addGap(59, 59, 59)
                 .addGroup(AddSecureNotesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TextArea, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TextArea, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(NotesLabel))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addComponent(NotesSubmit)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addGap(14, 14, 14))
         );
 
         MainPanel.add(AddSecureNotesPanel, "card5");
@@ -415,40 +409,15 @@ public class DashboardView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    //Show User data using JTable 
-    /*
-    public void DisplayTable(ArrayList<TableModel> list){
-        int size = list.size();     
-        Object[][] data = new Object[size][];
-        for(int i=0;i<size;i++){
-            data[i] = new Object[]{i+1,list.get(i).getSite(),list.get(i).getPwd(),list.get(i).getDate()};
-        }
-        String[] col = new String[]{"ID","Website","Password","Date Created"};
-        JTable Table = new JTable(data, col);
-        JScrollPane scroll = new JScrollPane(Table);
-        scroll.getViewport().setBackground(Color.WHITE);
-        scroll.setSize(LoginsPanel.getWidth(), LoginsPanel.getHeight());
-        PasswordPanel.removeAll();
-        PasswordPanel.add(scroll);
-        PasswordPanel.repaint();
-        PasswordPanel.revalidate();
-    }
-    */
-    
-    /*
-        Event Listeners
-    */
     public void PasswordPanelActionListerner(AncestorListener evt) {
         PasswordPanel.addAncestorListener(evt);
     }
+    
     public void SecureNotesDisplayActionListerner(AncestorListener evt){
         SecureNotesDisplay.addAncestorListener(evt);
     }
-    
-    /*
-        Password Panel data display
-    */
+   
+    //  Password Panel data display 
     public void showPasswordPanelMessage() {
         JLabel msgLabel = new JLabel("Click Add button to store password", JLabel.CENTER);
         msgLabel.setSize(PasswordPanel.getWidth(), 50);
@@ -456,11 +425,11 @@ public class DashboardView extends javax.swing.JFrame {
         PasswordPanel.add(msgLabel);
         PasswordPanel.repaint();
     }
+    
     public void DisplayUserData(ArrayList<TableModel> list){
         int size = list.size();
         JPanel panel = new JPanel();
         GridLayout layout = new GridLayout(size, 1);
-//        layout.setVgap(0);
         panel.setLayout(layout);        
         for(int i=0;i<size;i++){
             DataView dataView = new DataView(
@@ -487,9 +456,7 @@ public class DashboardView extends javax.swing.JFrame {
         PasswordPanel.repaint();
     }
     
-    /*
-        Secure Notes Panel data display
-    */
+    //  Secure Notes Panel data display
     public void showSecureNotesMessage() {
         JLabel msgLabel = new JLabel("Click Add button to store notes", JLabel.CENTER);
         msgLabel.setSize(SecureNotesDisplay.getWidth(), 50);
@@ -497,11 +464,11 @@ public class DashboardView extends javax.swing.JFrame {
         SecureNotesDisplay.add(msgLabel);
         SecureNotesDisplay.repaint();
     }
+    
     public void DisplayUserNotes(ArrayList<NotesModel> list){
         int size = list.size();
         JPanel panel = new JPanel();
         GridLayout layout = new GridLayout(size, 1);
-//        layout.setVgap(0);
         panel.setLayout(layout);        
         for(int i=0;i<size;i++){
             DataView dataView = new DataView(
@@ -526,12 +493,12 @@ public class DashboardView extends javax.swing.JFrame {
         SecureNotesDisplay.add(scroll);
         SecureNotesDisplay.repaint();
     }
-    /*
-        Button Actions Listeners
-    */
+    
+    //  Button Actions Listeners
     public void AddLoginsBtnActionListener(ActionListener action) {
         AddLoginsButton.addActionListener(action);
     }
+    
     public void DisplayAddLoginsPanel() {
         CardLayout cardLayout = (CardLayout)MainPanel.getLayout();
         cardLayout.show(MainPanel, "card4");
@@ -540,8 +507,8 @@ public class DashboardView extends javax.swing.JFrame {
     public void GenerateBtnActionListener(ActionListener action) {
         GenerateBtn.addActionListener(action);
     }
+    
     public void DisplayGeneratedPasswordPanel(String generatedPassword) {
-//        JOptionPane.showMessageDialog(this, new JPanel().add(new JTextField(generatedPassword)), "Generated Password", JOptionPane.INFORMATION_MESSAGE);
           GeneratedPasswordField.setText(generatedPassword);
           CardLayout cardLayout = (CardLayout)MainPanel.getLayout();
           cardLayout.show(MainPanel, "card2");         
@@ -550,10 +517,12 @@ public class DashboardView extends javax.swing.JFrame {
     public void LoginsBtnActionListener(ActionListener action) {
         LoginsBtn.addActionListener(action);
     }    
+    
     public void DisplayLoginsPanel() {
           CardLayout cardLayout = (CardLayout)MainPanel.getLayout();
           cardLayout.show(MainPanel, "card1");      
     }    
+    
     public void SubmitBtnActionListener(ActionListener action) {
         SubmitButton.addActionListener(action);
     }   
@@ -561,10 +530,12 @@ public class DashboardView extends javax.swing.JFrame {
     public void SecureNotesBtnActionListener(ActionListener action) {
         SecureNotesBtn.addActionListener(action);
     }
+    
     public void DisplaySecureNotesPanel() {    
         CardLayout cardLayout = (CardLayout)MainPanel.getLayout();
         cardLayout.show(MainPanel, "card3");        
-    }    
+    }   
+    
     public void SecureNotesAddBtnActionListener(ActionListener action){
         AddSecureNotesButton.addActionListener(action);
     } 
@@ -580,35 +551,15 @@ public class DashboardView extends javax.swing.JFrame {
     }
     
     public void DisplaySecureNotesArea() {
-//        JDialog txtArea = new JDialog(this,"Notes");
-//        txtArea.setLocationRelativeTo(null);
-//        JPanel panel = new JPanel();
-//        panel.setLayout(new BorderLayout());
-//        panel.setSize(300, 300);
-//        panel.setBackground(Color.WHITE);
-//        JTextField title = new JTextField("Enter Notes Title");
-//        JTextArea notes = new JTextArea(" ");
-//        notes.setLineWrap(true);
-//        JScrollPane scroll = new JScrollPane(notes);
-//        scroll.setPreferredSize(new Dimension(300, 200));
-//        JButton addNotes = new JButton("Add");
-//        panel.add(title,BorderLayout.NORTH);
-//        panel.add(scroll,BorderLayout.CENTER);
-//        panel.add(addNotes,BorderLayout.SOUTH);
-//        panel.setVisible(true);
-//        txtArea.add(panel);
-//        txtArea.setSize(300, 300);
-//        txtArea.setVisible(true);
         CardLayout cardLayout = (CardLayout) MainPanel.getLayout();
         cardLayout.show(MainPanel, "card5");
     }
+    
     public void NotesSubmitActionListener(ActionListener action){
         NotesSubmit.addActionListener(action);
     }    
     
-    /*
-        Utility method
-    */
+    //  Utility Methods
     public String getWebsite() {
         return WebsiteInputField.getText();
     }
@@ -644,12 +595,15 @@ public class DashboardView extends javax.swing.JFrame {
     public void clearWebsiteField() {
         WebsiteInputField.setText("");
     }
+    
     public void clearPasswordField() {
         PasswordInputField.setText("");
     }
+    
     public void clearTitleField(){
         TitleArea.setText("");
     }
+    
     public void clearTextField(){
         TextArea.setText("");
     }

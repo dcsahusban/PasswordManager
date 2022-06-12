@@ -1,23 +1,19 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package main;
 
 /**
  *
- * @author husbankhalid
+ * @author Husban
+ * @author Harshit
  */
 public class CredentialStore {
     
     private static String loggedInUser = null;
     
-    //Only single user to saved
-    static public void setLoggedInUser(String user){
+    static public void setLoggedInUser(String user) {
         CredentialStore.loggedInUser = user;
     }
     
-    static public String getLoggedInUser(){
+    static public String getLoggedInUser() {
         return CredentialStore.loggedInUser;
     }
            
